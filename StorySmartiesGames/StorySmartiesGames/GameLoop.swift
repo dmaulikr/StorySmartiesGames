@@ -20,6 +20,9 @@ class GameLoop : NSObject {
         start()
     }
     
+    deinit {
+        //print("GameLoop", #function)
+    }
     // you could overwrite this too
     func handleTimer() {
         doSomething()
@@ -33,7 +36,8 @@ class GameLoop : NSObject {
     
     func stop() {
         update.isPaused = true
-        update.remove(from: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
+        update.remove(from: RunLoop.current, forMode: RunLoopMode.commonModes)
         update = nil
+        doSomething = { return }
     }
 }

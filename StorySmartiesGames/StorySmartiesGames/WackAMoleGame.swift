@@ -8,10 +8,9 @@
 
 import Foundation
 import UIKit
-import Cartography
 
 
-public class WackAMollGame : UIView {
+public class WackAMoleGame : UIView {
     
     public var buttons = [UIButton]() 
     public var gridColor = UIColor.red
@@ -28,12 +27,16 @@ public class WackAMollGame : UIView {
     private var changeTitlelabel = true
     private var play = false
     
+    var gameLoop : GameLoop?
+    
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(frame: CGRect, words: [String], minLoop:Int = 5, maxLoop: Int = 15, spacing: CGFloat = 1, insetsBy: CGFloat = 5) {
+    public init(frame: CGRect, words: [String], startTime: TimeInterval, minLoop:Int = 5, maxLoop: Int = 15, spacing: CGFloat = 1, insetsBy: CGFloat = 5) {
         super.init(frame: frame)
+        
+        ViewController.titleLabel.text = "Wack A Mole Game"
         
         if (minLoop >= maxLoop) {
             print("Min Loop must be greater than Max Loop")
@@ -96,7 +99,7 @@ public class WackAMollGame : UIView {
             }
         }
         
-        Timer.scheduledTimer(withTimeInterval: 4.0, repeats: false) { time in 
+        Timer.scheduledTimer(withTimeInterval: startTime, repeats: false) { time in 
             if self.play == false { self.play = true }            
         }
         
@@ -108,36 +111,37 @@ public class WackAMollGame : UIView {
         wordToHit = wordList.chooseOne()
         self.cardsClosed = self.buttons
         
-        _ = GameLoop() { 
+        gameLoop = GameLoop() { [weak self] in
             
-            if (self.play ) {
+            guard let strongSelf = self else { return }
+            if (strongSelf.play ) {
                 
                 ViewController.pointsLabel.text = (ViewController.points == 1) ? "\(ViewController.points) Point" : "\(ViewController.points) Points"
                 
-                if self.changeTitlelabel == true{
-                    self.clearGrid()
+                if strongSelf.changeTitlelabel == true{
+                    strongSelf.clearGrid()
                 }
                 
                 if counter > randomTimeLoop {
                     
-                    if self.changeTitlelabel == true{
-                        ViewController.descriptionLabel.text = self.wordToHit
-                        self.changeTitlelabel = false
+                    if strongSelf.changeTitlelabel == true{
+                        ViewController.descriptionLabel.text = strongSelf.wordToHit
+                        strongSelf.changeTitlelabel = false
                     }
                     
                     
-                    if self.cardsOpened.count  < self.buttons.count {
+                    if strongSelf.cardsOpened.count  < strongSelf.buttons.count {
                         
-                        let openNew = self.cardsClosed.chooseOne()
-                        guard let cardIndex = self.cardsClosed.index(of: openNew) else { return }
+                        let openNew = strongSelf.cardsClosed.chooseOne()
+                        guard let cardIndex = strongSelf.cardsClosed.index(of: openNew) else { return }
                         
-                        let word = (Int.randomi(0, 10) > 3) ? self.wordList.chooseOne() : self.wordToHit
-                        openNew.backgroundColor = self.mainColor
+                        let word = (Int.randomi(0, 10) > 3) ? strongSelf.wordList.chooseOne() : strongSelf.wordToHit
+                        openNew.backgroundColor = strongSelf.mainColor
                         openNew.setTitle(word, for: .normal)
                         
-                        self.cardsOpened.append(openNew)
-                        self.cardsOpenedLifeTime.append((gameLoopTime + Int.randomi(maxLoop + 10, maxLoop + 50)))
-                        self.cardsClosed.remove(at: cardIndex)
+                        strongSelf.cardsOpened.append(openNew)
+                        strongSelf.cardsOpenedLifeTime.append((gameLoopTime + Int.randomi(maxLoop + 10, maxLoop + 50)))
+                        strongSelf.cardsClosed.remove(at: cardIndex)
                         
                     }
                     
@@ -149,13 +153,13 @@ public class WackAMollGame : UIView {
                 }
                 
                 //expired cards
-                for (ind, lifetime) in self.cardsOpenedLifeTime.enumerated(){
+                for (ind, lifetime) in strongSelf.cardsOpenedLifeTime.enumerated(){
                     if lifetime < gameLoopTime{
-                        self.cardsOpened[ind].backgroundColor = self.gridColor
-                        self.cardsOpened[ind].setTitle("", for: .normal)
-                        self.cardsClosed.append(self.cardsOpened[ind])
-                        self.cardsOpened.remove(at: ind)
-                        self.cardsOpenedLifeTime.remove(at: ind)
+                        strongSelf.cardsOpened[ind].backgroundColor = strongSelf.gridColor
+                        strongSelf.cardsOpened[ind].setTitle("", for: .normal)
+                        strongSelf.cardsClosed.append(strongSelf.cardsOpened[ind])
+                        strongSelf.cardsOpened.remove(at: ind)
+                        strongSelf.cardsOpenedLifeTime.remove(at: ind)
                     }
                 }
             }
@@ -163,6 +167,12 @@ public class WackAMollGame : UIView {
         }
         
         
+    }
+    
+    deinit {
+        gameLoop?.stop()
+        gameLoop = nil
+        //print("WackAMole", #function)
     }
     
     func clearGrid(){

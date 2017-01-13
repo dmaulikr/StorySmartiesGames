@@ -8,14 +8,14 @@
 
 import Foundation
 import UIKit
-import Cartography
 
 public class PairsGame : UIView {
     
     // two-dimensional array of your Cell views. You create them elsewhere and add 
     // all of them to GridView
     public var originals = [(button:UIButton, color:UIColor, word:String)]() 
-    public var recentChoice = UIColor()
+    public var recentChoiceColor = UIColor()
+    public var recentChoiceWord = String()
     public var recentChoiceLocation = CGPoint()
     public var recentChoiceBool = false
     public var recentChoiceIndex = 0
@@ -28,8 +28,11 @@ public class PairsGame : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(frame: CGRect, words: [String]?, startTime: TimeInterval,  spacing: CGFloat = 1, insetsBy: CGFloat = 5) {
+    public init(frame: CGRect, words: [String]?, startTime: TimeInterval, colored: Bool = false,  spacing: CGFloat = 1, insetsBy: CGFloat = 5) {
         super.init(frame: frame)
+        
+        ViewController.titleLabel.text = "Pairs Game"
+        ViewController.descriptionLabel.text = "Find 8 Pairs"
         
         //square size of the grid
         guard let wordsList = words, 
@@ -85,13 +88,11 @@ public class PairsGame : UIView {
                         width: childSize.width,
                         height: childSize.height))
                     
-                    let color = colors[iterator]
+                    let color = colored ? colors[iterator] : UIColor(red: CGFloat(102.0/255), green: CGFloat(143.0/255), blue: CGFloat(138.0/255), alpha: 1.0)
                     button.backgroundColor = color
                     
                     
-                    var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
-                    _ = color.getRed(&r, green: &g, blue: &b, alpha: &a)
-                    let titleColor = (r<0.6 && g<0.6 && b<0.6) ? UIColor.white : UIColor.black
+                    let titleColor = color.getTextColor()
                     
                     let title = wordsToAdd[iterator]
                     button.titleLabel?.font = UIFont.systemFont(ofSize: 16.0)
@@ -122,6 +123,10 @@ public class PairsGame : UIView {
         
     }
     
+    deinit {
+      //  print(#function)
+    }
+    
     public func tapped(_ but: UIButton) {
         
         var getOriginalColor = UIColor()
@@ -145,16 +150,17 @@ public class PairsGame : UIView {
             but.backgroundColor = getOriginalColor
             but.setTitle(getOriginalWord,for: .normal)
             
-            guard let color = but.backgroundColor else { return }
+            guard let color = but.backgroundColor, let title = but.titleLabel?.text else { return }
             
             if recentChoiceBool == false {
-                recentChoice = color
+                recentChoiceColor = color
+                recentChoiceWord = title
                 recentChoiceBool = true
                 recentChoiceLocation = but.center
                 recentChoiceIndex = getOriginalColorIndex
                 print( "first choice" )
             }else {
-                if (recentChoice == color && but.center != recentChoiceLocation && !pairsFoundIndex.contains(getOriginalColorIndex) ){
+                if (recentChoiceColor == color && recentChoiceWord == title && but.center != recentChoiceLocation && !pairsFoundIndex.contains(getOriginalColorIndex) ){
                     pairsFoundIndex.append(recentChoiceIndex)
                     pairsFoundIndex.append(getOriginalColorIndex)
                     
@@ -182,7 +188,8 @@ public class PairsGame : UIView {
                     
                 }
                 
-                recentChoice = UIColor()
+                recentChoiceColor = UIColor()
+                recentChoiceWord = ""
                 recentChoiceBool = false
                 recentChoiceLocation = CGPoint.zero
                 recentChoiceIndex = 0
