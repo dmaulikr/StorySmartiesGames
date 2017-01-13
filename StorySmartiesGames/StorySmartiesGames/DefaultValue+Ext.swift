@@ -18,22 +18,18 @@ extension String: LogWithDefault {
 
 extension Double: LogWithDefault {
     public var value: Double { return self }
-    
 }
 
 extension CGFloat: LogWithDefault {
     public var value: CGFloat { return self }
-    
 }
 
 extension Int: LogWithDefault {
     public var value: Int { return self }
-    
 }
 
 extension CGRect: LogWithDefault {
     public var value: CGRect { return self }
-    
 }
 
 

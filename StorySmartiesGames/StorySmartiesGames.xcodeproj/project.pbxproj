@@ -12,8 +12,6 @@
 		C72960681E283A230046B59E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C72960661E283A230046B59E /* Main.storyboard */; };
 		C729606A1E283A230046B59E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C72960691E283A230046B59E /* Assets.xcassets */; };
 		C729606D1E283A230046B59E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C729606B1E283A230046B59E /* LaunchScreen.storyboard */; };
-		C72960F11E283D2C0046B59E /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72960E01E283CCA0046B59E /* Cartography.framework */; };
-		C72960F21E283D2C0046B59E /* Cartography.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72960E01E283CCA0046B59E /* Cartography.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C72960F51E283D2C0046B59E /* EasyAnimation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72960EE1E283CCA0046B59E /* EasyAnimation.framework */; };
 		C72960F61E283D2C0046B59E /* EasyAnimation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72960EE1E283CCA0046B59E /* EasyAnimation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C72960F91E283D2C0046B59E /* RandomKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72960CC1E283CA30046B59E /* RandomKit.framework */; };
@@ -24,29 +22,27 @@
 		C72961021E283D2C0046B59E /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72960A21E283C780046B59E /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C72961051E283D2C0046B59E /* RxSwiftExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C729607F1E283C2C0046B59E /* RxSwiftExt.framework */; };
 		C72961061E283D2C0046B59E /* RxSwiftExt.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C729607F1E283C2C0046B59E /* RxSwiftExt.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C72961091E283D2C0046B59E /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72960E01E283CCA0046B59E /* Cartography.framework */; };
-		C729610A1E283D2C0046B59E /* Cartography.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72960E01E283CCA0046B59E /* Cartography.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C729610D1E283D2C0046B59E /* EasyAnimation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72960EE1E283CCA0046B59E /* EasyAnimation.framework */; };
 		C729610E1E283D2C0046B59E /* EasyAnimation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72960EE1E283CCA0046B59E /* EasyAnimation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C72961111E283D2C0046B59E /* RandomKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72960CC1E283CA30046B59E /* RandomKit.framework */; };
 		C72961121E283D2C0046B59E /* RandomKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72960CC1E283CA30046B59E /* RandomKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C72961181E2840C40046B59E /* UIKit+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961161E2840C40046B59E /* UIKit+Ext.swift */; };
-		C729611C1E2840CF0046B59E /* Math+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C729611A1E2840CF0046B59E /* Math+Ext.swift */; };
-		C729611D1E2840CF0046B59E /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C729611B1E2840CF0046B59E /* String+Ext.swift */; };
-		C729611F1E2845C00046B59E /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C729611E1E2845C00046B59E /* Array+Ext.swift */; };
-		C729617E1E28477F0046B59E /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C729617D1E28477F0046B59E /* SwiftRegex.swift */; };
-		C72961801E2847950046B59E /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = C729617F1E2847950046B59E /* Then.swift */; };
-		C72961821E2847A80046B59E /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961811E2847A80046B59E /* Emoji.swift */; };
-		C72961841E2847D30046B59E /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961831E2847D30046B59E /* Global.swift */; };
-		C72961861E2847E80046B59E /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961851E2847E80046B59E /* Array2D.swift */; };
-		C72961881E28488A0046B59E /* CollectionType+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961871E28488A0046B59E /* CollectionType+Ext.swift */; };
-		C729618A1E28489B0046B59E /* DefaultValue+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961891E28489B0046B59E /* DefaultValue+Ext.swift */; };
-		C72961921E284B6A0046B59E /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961911E284B6A0046B59E /* UIFont+Ext.swift */; };
-		C72961941E284BA40046B59E /* UIView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961931E284BA40046B59E /* UIView+Rx.swift */; };
-		C72961981E284BFD0046B59E /* UIGestureRecognizer+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961971E284BFD0046B59E /* UIGestureRecognizer+Ext.swift */; };
-		C729619A1E284C110046B59E /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961991E284C110046B59E /* UIView+Ext.swift */; };
-		C729619C1E284C240046B59E /* UITextView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C729619B1E284C240046B59E /* UITextView+Ext.swift */; };
 		C729619E1E284E7B0046B59E /* CALayer+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C729619D1E284E7B0046B59E /* CALayer+Ext.swift */; };
+		C72961D21E2852E10046B59E /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961C21E2852E10046B59E /* Array+Ext.swift */; };
+		C72961D31E2852E10046B59E /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961C31E2852E10046B59E /* Array2D.swift */; };
+		C72961D41E2852E10046B59E /* CollectionType+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961C41E2852E10046B59E /* CollectionType+Ext.swift */; };
+		C72961D51E2852E10046B59E /* DefaultValue+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961C51E2852E10046B59E /* DefaultValue+Ext.swift */; };
+		C72961D61E2852E10046B59E /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961C61E2852E10046B59E /* Emoji.swift */; };
+		C72961D71E2852E10046B59E /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961C71E2852E10046B59E /* Global.swift */; };
+		C72961D81E2852E10046B59E /* Math+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961C81E2852E10046B59E /* Math+Ext.swift */; };
+		C72961D91E2852E10046B59E /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961C91E2852E10046B59E /* String+Ext.swift */; };
+		C72961DA1E2852E10046B59E /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961CA1E2852E10046B59E /* SwiftRegex.swift */; };
+		C72961DB1E2852E10046B59E /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961CB1E2852E10046B59E /* Then.swift */; };
+		C72961DC1E2852E10046B59E /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961CC1E2852E10046B59E /* UIFont+Ext.swift */; };
+		C72961DD1E2852E10046B59E /* UIGestureRecognizer+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961CD1E2852E10046B59E /* UIGestureRecognizer+Ext.swift */; };
+		C72961DE1E2852E10046B59E /* UIKit+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961CE1E2852E10046B59E /* UIKit+Ext.swift */; };
+		C72961DF1E2852E10046B59E /* UITextView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961CF1E2852E10046B59E /* UITextView+Ext.swift */; };
+		C72961E01E2852E10046B59E /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961D01E2852E10046B59E /* UIView+Ext.swift */; };
+		C72961E11E2852E10046B59E /* UIView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961D11E2852E10046B59E /* UIView+Rx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -239,48 +235,6 @@
 			remoteGlobalIDString = 528200F11BC9FA42001FDD58;
 			remoteInfo = "RandomKit Tests";
 		};
-		C72960DF1E283CCA0046B59E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C72960D31E283CCA0046B59E /* Cartography.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 54C96A11195063CD000CDD27;
-			remoteInfo = "Cartography-iOS";
-		};
-		C72960E11E283CCA0046B59E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C72960D31E283CCA0046B59E /* Cartography.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 54C96A1C195063CD000CDD27;
-			remoteInfo = "Cartography-iOS-Tests";
-		};
-		C72960E31E283CCA0046B59E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C72960D31E283CCA0046B59E /* Cartography.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 54F6A838195C20C100313D24;
-			remoteInfo = "Cartography-Mac";
-		};
-		C72960E51E283CCA0046B59E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C72960D31E283CCA0046B59E /* Cartography.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 54F6A842195C20C200313D24;
-			remoteInfo = "Cartography-Mac-Tests";
-		};
-		C72960E71E283CCA0046B59E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C72960D31E283CCA0046B59E /* Cartography.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 632F090A1BF1E7AA002431A3;
-			remoteInfo = "Cartography-tvOS";
-		};
-		C72960E91E283CCA0046B59E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C72960D31E283CCA0046B59E /* Cartography.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 632F09221BF1E7FC002431A3;
-			remoteInfo = "Cartography-tvOS-tests";
-		};
 		C72960ED1E283CCA0046B59E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C72960D61E283CCA0046B59E /* EasyAnimation.xcodeproj */;
@@ -294,13 +248,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 72A03EF91C29784A002DA467;
 			remoteInfo = "EasyAnimation tvOS";
-		};
-		C72960F31E283D2C0046B59E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C72960D31E283CCA0046B59E /* Cartography.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 54C96A10195063CD000CDD27;
-			remoteInfo = "Cartography-iOS";
 		};
 		C72960F71E283D2C0046B59E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -337,13 +284,6 @@
 			remoteGlobalIDString = 188C6D901C47B2B20092101A;
 			remoteInfo = RxSwiftExt;
 		};
-		C729610B1E283D2C0046B59E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C72960D31E283CCA0046B59E /* Cartography.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 54C96A10195063CD000CDD27;
-			remoteInfo = "Cartography-iOS";
-		};
 		C729610F1E283D2C0046B59E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C72960D61E283CCA0046B59E /* EasyAnimation.xcodeproj */;
@@ -368,9 +308,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C72960FE1E283D2C0046B59E /* RxSwift.framework in Embed Frameworks */,
-				C729610A1E283D2C0046B59E /* Cartography.framework in Embed Frameworks */,
 				C72961121E283D2C0046B59E /* RandomKit.framework in Embed Frameworks */,
-				C72960F21E283D2C0046B59E /* Cartography.framework in Embed Frameworks */,
 				C72960F61E283D2C0046B59E /* EasyAnimation.framework in Embed Frameworks */,
 				C72961021E283D2C0046B59E /* RxCocoa.framework in Embed Frameworks */,
 				C729610E1E283D2C0046B59E /* EasyAnimation.framework in Embed Frameworks */,
@@ -393,25 +331,24 @@
 		C72960791E283C2B0046B59E /* RxSwiftExt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RxSwiftExt.xcodeproj; path = ../Carthage/Checkouts/RxSwiftExt/RxSwiftExt.xcodeproj; sourceTree = "<group>"; };
 		C72960821E283C780046B59E /* Rx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rx.xcodeproj; path = ../Carthage/Checkouts/RxSwift/Rx.xcodeproj; sourceTree = "<group>"; };
 		C72960C11E283CA30046B59E /* RandomKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RandomKit.xcodeproj; path = ../Carthage/Checkouts/RandomKit/RandomKit.xcodeproj; sourceTree = "<group>"; };
-		C72960D31E283CCA0046B59E /* Cartography.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cartography.xcodeproj; path = ../Carthage/Checkouts/Cartography/Cartography.xcodeproj; sourceTree = "<group>"; };
 		C72960D61E283CCA0046B59E /* EasyAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EasyAnimation.xcodeproj; path = ../Carthage/Checkouts/EasyAnimation/EasyAnimation.xcodeproj; sourceTree = "<group>"; };
-		C72961161E2840C40046B59E /* UIKit+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIKit+Ext.swift"; path = "../../../../Downloads/UIKitAnimations-master/UIKitDynamicsApp/UIKit+Ext.swift"; sourceTree = "<group>"; };
-		C729611A1E2840CF0046B59E /* Math+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Math+Ext.swift"; path = "../../../../Downloads/UIKitAnimations-master/UIKitDynamicsApp/Math+Ext.swift"; sourceTree = "<group>"; };
-		C729611B1E2840CF0046B59E /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Ext.swift"; path = "../../../../Downloads/UIKitAnimations-master/UIKitDynamicsApp/String+Ext.swift"; sourceTree = "<group>"; };
-		C729611E1E2845C00046B59E /* Array+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+Ext.swift"; path = "../../../StorySmarties/StorySmartiesWorkspace/StorySmarties/Array+Ext.swift"; sourceTree = "<group>"; };
-		C729617D1E28477F0046B59E /* SwiftRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftRegex.swift; path = ../../../StorySmarties/StorySmartiesNewWorkspace/StorySmartiesCore/StorySmartiesCore/SwiftRegex.swift; sourceTree = "<group>"; };
-		C729617F1E2847950046B59E /* Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Then.swift; path = ../../../StorySmarties/StorySmartiesNewWorkspace/StorySmartiesCore/StorySmartiesCore/Then.swift; sourceTree = "<group>"; };
-		C72961811E2847A80046B59E /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Emoji.swift; path = ../../../StorySmarties/StorySmartiesNewWorkspace/StorySmartiesCore/StorySmartiesCore/Emoji.swift; sourceTree = "<group>"; };
-		C72961831E2847D30046B59E /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Global.swift; path = ../../../StorySmarties/StorySmartiesNewWorkspace/StorySmartiesCore/StorySmartiesCore/Global.swift; sourceTree = "<group>"; };
-		C72961851E2847E80046B59E /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array2D.swift; path = ../../../StorySmarties/StorySmartiesNewWorkspace/StorySmartiesCore/StorySmartiesCore/Array2D.swift; sourceTree = "<group>"; };
-		C72961871E28488A0046B59E /* CollectionType+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CollectionType+Ext.swift"; path = "../../../StorySmarties/StorySmartiesNewWorkspace/StorySmartiesCore/StorySmartiesCore/CollectionType+Ext.swift"; sourceTree = "<group>"; };
-		C72961891E28489B0046B59E /* DefaultValue+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DefaultValue+Ext.swift"; path = "../../../StorySmarties/StorySmartiesNewWorkspace/StorySmartiesCore/StorySmartiesCore/DefaultValue+Ext.swift"; sourceTree = "<group>"; };
-		C72961911E284B6A0046B59E /* UIFont+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIFont+Ext.swift"; path = "../../../StorySmarties/StorySmartiesNewWorkspace/StorySmartiesView/StorySmartiesView/UIFont+Ext.swift"; sourceTree = "<group>"; };
-		C72961931E284BA40046B59E /* UIView+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Rx.swift"; path = "../../../StorySmarties/StorySmartiesNewWorkspace/StorySmartiesView/StorySmartiesView/UIView+Rx.swift"; sourceTree = "<group>"; };
-		C72961971E284BFD0046B59E /* UIGestureRecognizer+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIGestureRecognizer+Ext.swift"; path = "../../../StorySmarties/StorySmartiesNewWorkspace/StorySmartiesView/StorySmartiesView/UIGestureRecognizer+Ext.swift"; sourceTree = "<group>"; };
-		C72961991E284C110046B59E /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Ext.swift"; path = "../../../StorySmarties/StorySmartiesNewWorkspace/StorySmartiesView/StorySmartiesView/UIView+Ext.swift"; sourceTree = "<group>"; };
-		C729619B1E284C240046B59E /* UITextView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITextView+Ext.swift"; path = "../../../StorySmarties/StorySmartiesNewWorkspace/StorySmartiesView/StorySmartiesView/UITextView+Ext.swift"; sourceTree = "<group>"; };
 		C729619D1E284E7B0046B59E /* CALayer+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Ext.swift"; sourceTree = "<group>"; };
+		C72961C21E2852E10046B59E /* Array+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
+		C72961C31E2852E10046B59E /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
+		C72961C41E2852E10046B59E /* CollectionType+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+Ext.swift"; sourceTree = "<group>"; };
+		C72961C51E2852E10046B59E /* DefaultValue+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DefaultValue+Ext.swift"; sourceTree = "<group>"; };
+		C72961C61E2852E10046B59E /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
+		C72961C71E2852E10046B59E /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		C72961C81E2852E10046B59E /* Math+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Math+Ext.swift"; sourceTree = "<group>"; };
+		C72961C91E2852E10046B59E /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		C72961CA1E2852E10046B59E /* SwiftRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRegex.swift; sourceTree = "<group>"; };
+		C72961CB1E2852E10046B59E /* Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
+		C72961CC1E2852E10046B59E /* UIFont+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
+		C72961CD1E2852E10046B59E /* UIGestureRecognizer+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIGestureRecognizer+Ext.swift"; sourceTree = "<group>"; };
+		C72961CE1E2852E10046B59E /* UIKit+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Ext.swift"; sourceTree = "<group>"; };
+		C72961CF1E2852E10046B59E /* UITextView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Ext.swift"; sourceTree = "<group>"; };
+		C72961D01E2852E10046B59E /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		C72961D11E2852E10046B59E /* UIView+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Rx.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -420,9 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C72960FD1E283D2C0046B59E /* RxSwift.framework in Frameworks */,
-				C72961091E283D2C0046B59E /* Cartography.framework in Frameworks */,
 				C72961111E283D2C0046B59E /* RandomKit.framework in Frameworks */,
-				C72960F11E283D2C0046B59E /* Cartography.framework in Frameworks */,
 				C72960F51E283D2C0046B59E /* EasyAnimation.framework in Frameworks */,
 				C72961011E283D2C0046B59E /* RxCocoa.framework in Frameworks */,
 				C729610D1E283D2C0046B59E /* EasyAnimation.framework in Frameworks */,
@@ -437,7 +372,6 @@
 		C72960561E283A230046B59E = {
 			isa = PBXGroup;
 			children = (
-				C72960D31E283CCA0046B59E /* Cartography.xcodeproj */,
 				C72960D61E283CCA0046B59E /* EasyAnimation.xcodeproj */,
 				C72960C11E283CA30046B59E /* RandomKit.xcodeproj */,
 				C72960821E283C780046B59E /* Rx.xcodeproj */,
@@ -517,19 +451,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C72960D41E283CCA0046B59E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C72960E01E283CCA0046B59E /* Cartography.framework */,
-				C72960E21E283CCA0046B59E /* Cartography-iOS-Tests.xctest */,
-				C72960E41E283CCA0046B59E /* Cartography.framework */,
-				C72960E61E283CCA0046B59E /* Cartography-Mac-Tests.xctest */,
-				C72960E81E283CCA0046B59E /* Cartography.framework */,
-				C72960EA1E283CCA0046B59E /* Cartography-tvOS-tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		C72960D71E283CCA0046B59E /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,23 +463,23 @@
 		C729619F1E284FE80046B59E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C729611E1E2845C00046B59E /* Array+Ext.swift */,
-				C72961891E28489B0046B59E /* DefaultValue+Ext.swift */,
-				C72961871E28488A0046B59E /* CollectionType+Ext.swift */,
-				C72961161E2840C40046B59E /* UIKit+Ext.swift */,
-				C72961911E284B6A0046B59E /* UIFont+Ext.swift */,
-				C72961931E284BA40046B59E /* UIView+Rx.swift */,
-				C72961991E284C110046B59E /* UIView+Ext.swift */,
-				C729619B1E284C240046B59E /* UITextView+Ext.swift */,
-				C72961971E284BFD0046B59E /* UIGestureRecognizer+Ext.swift */,
-				C729611A1E2840CF0046B59E /* Math+Ext.swift */,
-				C729611B1E2840CF0046B59E /* String+Ext.swift */,
-				C72961851E2847E80046B59E /* Array2D.swift */,
-				C72961831E2847D30046B59E /* Global.swift */,
-				C729617D1E28477F0046B59E /* SwiftRegex.swift */,
-				C729617F1E2847950046B59E /* Then.swift */,
+				C72961C21E2852E10046B59E /* Array+Ext.swift */,
+				C72961C31E2852E10046B59E /* Array2D.swift */,
+				C72961C41E2852E10046B59E /* CollectionType+Ext.swift */,
+				C72961C51E2852E10046B59E /* DefaultValue+Ext.swift */,
+				C72961C61E2852E10046B59E /* Emoji.swift */,
+				C72961C71E2852E10046B59E /* Global.swift */,
+				C72961C81E2852E10046B59E /* Math+Ext.swift */,
+				C72961C91E2852E10046B59E /* String+Ext.swift */,
+				C72961CA1E2852E10046B59E /* SwiftRegex.swift */,
+				C72961CB1E2852E10046B59E /* Then.swift */,
+				C72961CC1E2852E10046B59E /* UIFont+Ext.swift */,
+				C72961CD1E2852E10046B59E /* UIGestureRecognizer+Ext.swift */,
+				C72961CE1E2852E10046B59E /* UIKit+Ext.swift */,
+				C72961CF1E2852E10046B59E /* UITextView+Ext.swift */,
+				C72961D01E2852E10046B59E /* UIView+Ext.swift */,
+				C72961D11E2852E10046B59E /* UIView+Rx.swift */,
 				C729619D1E284E7B0046B59E /* CALayer+Ext.swift */,
-				C72961811E2847A80046B59E /* Emoji.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -578,13 +499,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				C72960F41E283D2C0046B59E /* PBXTargetDependency */,
 				C72960F81E283D2C0046B59E /* PBXTargetDependency */,
 				C72960FC1E283D2C0046B59E /* PBXTargetDependency */,
 				C72961001E283D2C0046B59E /* PBXTargetDependency */,
 				C72961041E283D2C0046B59E /* PBXTargetDependency */,
 				C72961081E283D2C0046B59E /* PBXTargetDependency */,
-				C729610C1E283D2C0046B59E /* PBXTargetDependency */,
 				C72961101E283D2C0046B59E /* PBXTargetDependency */,
 				C72961141E283D2C0046B59E /* PBXTargetDependency */,
 			);
@@ -622,10 +541,6 @@
 			productRefGroup = C72960601E283A230046B59E /* Products */;
 			projectDirPath = "";
 			projectReferences = (
-				{
-					ProductGroup = C72960D41E283CCA0046B59E /* Products */;
-					ProjectRef = C72960D31E283CCA0046B59E /* Cartography.xcodeproj */;
-				},
 				{
 					ProductGroup = C72960D71E283CCA0046B59E /* Products */;
 					ProjectRef = C72960D61E283CCA0046B59E /* EasyAnimation.xcodeproj */;
@@ -840,48 +755,6 @@
 			remoteRef = C72960D11E283CA30046B59E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C72960E01E283CCA0046B59E /* Cartography.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Cartography.framework;
-			remoteRef = C72960DF1E283CCA0046B59E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C72960E21E283CCA0046B59E /* Cartography-iOS-Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Cartography-iOS-Tests.xctest";
-			remoteRef = C72960E11E283CCA0046B59E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C72960E41E283CCA0046B59E /* Cartography.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Cartography.framework;
-			remoteRef = C72960E31E283CCA0046B59E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C72960E61E283CCA0046B59E /* Cartography-Mac-Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Cartography-Mac-Tests.xctest";
-			remoteRef = C72960E51E283CCA0046B59E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C72960E81E283CCA0046B59E /* Cartography.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Cartography.framework;
-			remoteRef = C72960E71E283CCA0046B59E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C72960EA1E283CCA0046B59E /* Cartography-tvOS-tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Cartography-tvOS-tests.xctest";
-			remoteRef = C72960E91E283CCA0046B59E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		C72960EE1E283CCA0046B59E /* EasyAnimation.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -916,36 +789,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C729611D1E2840CF0046B59E /* String+Ext.swift in Sources */,
-				C729618A1E28489B0046B59E /* DefaultValue+Ext.swift in Sources */,
-				C729611C1E2840CF0046B59E /* Math+Ext.swift in Sources */,
 				C72960651E283A230046B59E /* ViewController.swift in Sources */,
-				C72961821E2847A80046B59E /* Emoji.swift in Sources */,
-				C729617E1E28477F0046B59E /* SwiftRegex.swift in Sources */,
-				C729619A1E284C110046B59E /* UIView+Ext.swift in Sources */,
-				C72961881E28488A0046B59E /* CollectionType+Ext.swift in Sources */,
-				C72961801E2847950046B59E /* Then.swift in Sources */,
-				C729619C1E284C240046B59E /* UITextView+Ext.swift in Sources */,
-				C72961941E284BA40046B59E /* UIView+Rx.swift in Sources */,
-				C72961981E284BFD0046B59E /* UIGestureRecognizer+Ext.swift in Sources */,
-				C729611F1E2845C00046B59E /* Array+Ext.swift in Sources */,
-				C72961921E284B6A0046B59E /* UIFont+Ext.swift in Sources */,
-				C72961861E2847E80046B59E /* Array2D.swift in Sources */,
+				C72961DF1E2852E10046B59E /* UITextView+Ext.swift in Sources */,
+				C72961D31E2852E10046B59E /* Array2D.swift in Sources */,
+				C72961D81E2852E10046B59E /* Math+Ext.swift in Sources */,
+				C72961D61E2852E10046B59E /* Emoji.swift in Sources */,
+				C72961E01E2852E10046B59E /* UIView+Ext.swift in Sources */,
+				C72961D21E2852E10046B59E /* Array+Ext.swift in Sources */,
+				C72961DB1E2852E10046B59E /* Then.swift in Sources */,
+				C72961DA1E2852E10046B59E /* SwiftRegex.swift in Sources */,
+				C72961D91E2852E10046B59E /* String+Ext.swift in Sources */,
+				C72961DD1E2852E10046B59E /* UIGestureRecognizer+Ext.swift in Sources */,
+				C72961E11E2852E10046B59E /* UIView+Rx.swift in Sources */,
+				C72961DC1E2852E10046B59E /* UIFont+Ext.swift in Sources */,
+				C72961DE1E2852E10046B59E /* UIKit+Ext.swift in Sources */,
+				C72961D41E2852E10046B59E /* CollectionType+Ext.swift in Sources */,
 				C72960631E283A230046B59E /* AppDelegate.swift in Sources */,
-				C72961841E2847D30046B59E /* Global.swift in Sources */,
 				C729619E1E284E7B0046B59E /* CALayer+Ext.swift in Sources */,
-				C72961181E2840C40046B59E /* UIKit+Ext.swift in Sources */,
+				C72961D71E2852E10046B59E /* Global.swift in Sources */,
+				C72961D51E2852E10046B59E /* DefaultValue+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C72960F41E283D2C0046B59E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Cartography-iOS";
-			targetProxy = C72960F31E283D2C0046B59E /* PBXContainerItemProxy */;
-		};
 		C72960F81E283D2C0046B59E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = EasyAnimation;
@@ -970,11 +838,6 @@
 			isa = PBXTargetDependency;
 			name = RxSwiftExt;
 			targetProxy = C72961071E283D2C0046B59E /* PBXContainerItemProxy */;
-		};
-		C729610C1E283D2C0046B59E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Cartography-iOS";
-			targetProxy = C729610B1E283D2C0046B59E /* PBXContainerItemProxy */;
 		};
 		C72961101E283D2C0046B59E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
