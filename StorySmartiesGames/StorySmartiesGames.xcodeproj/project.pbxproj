@@ -44,6 +44,9 @@
 		C72961F71E2856300046B59E /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72961EC1E28562A0046B59E /* Cartography.framework */; };
 		C72961F81E2856300046B59E /* Cartography.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72961EC1E28562A0046B59E /* Cartography.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C72961FC1E2856E60046B59E /* PeterRabbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961FB1E2856E60046B59E /* PeterRabbit.swift */; };
+		C72962021E285E4B0046B59E /* WackAMollGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72962011E285E4B0046B59E /* WackAMollGame.swift */; };
+		C72962611E285E740046B59E /* PairsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72962601E285E740046B59E /* PairsGame.swift */; };
+		C729631D1E2866D30046B59E /* GameLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = C729631C1E2866D30046B59E /* GameLoop.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -394,6 +397,9 @@
 		C72961D11E2852E10046B59E /* UIView+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Rx.swift"; sourceTree = "<group>"; };
 		C72961E21E2856290046B59E /* Cartography.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cartography.xcodeproj; path = ../Carthage/Checkouts/Cartography/Cartography.xcodeproj; sourceTree = "<group>"; };
 		C72961FB1E2856E60046B59E /* PeterRabbit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeterRabbit.swift; sourceTree = "<group>"; };
+		C72962011E285E4B0046B59E /* WackAMollGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WackAMollGame.swift; sourceTree = "<group>"; };
+		C72962601E285E740046B59E /* PairsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairsGame.swift; sourceTree = "<group>"; };
+		C729631C1E2866D30046B59E /* GameLoop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLoop.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -438,6 +444,8 @@
 		C72960611E283A230046B59E /* StorySmartiesGames */ = {
 			isa = PBXGroup;
 			children = (
+				C72962001E285E2F0046B59E /* WackAMoll */,
+				C72961FF1E285E290046B59E /* Pairs */,
 				C729619F1E284FE80046B59E /* Extensions */,
 				C72960621E283A230046B59E /* AppDelegate.swift */,
 				C72960641E283A230046B59E /* ViewController.swift */,
@@ -542,6 +550,23 @@
 				C72961F61E28562A0046B59E /* Cartography-tvOS-tests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C72961FF1E285E290046B59E /* Pairs */ = {
+			isa = PBXGroup;
+			children = (
+				C72962601E285E740046B59E /* PairsGame.swift */,
+			);
+			name = Pairs;
+			sourceTree = "<group>";
+		};
+		C72962001E285E2F0046B59E /* WackAMoll */ = {
+			isa = PBXGroup;
+			children = (
+				C72962011E285E4B0046B59E /* WackAMollGame.swift */,
+				C729631C1E2866D30046B59E /* GameLoop.swift */,
+			);
+			name = WackAMoll;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -909,11 +934,14 @@
 				C72961DD1E2852E10046B59E /* UIGestureRecognizer+Ext.swift in Sources */,
 				C72961E11E2852E10046B59E /* UIView+Rx.swift in Sources */,
 				C72961DC1E2852E10046B59E /* UIFont+Ext.swift in Sources */,
+				C72962611E285E740046B59E /* PairsGame.swift in Sources */,
+				C72962021E285E4B0046B59E /* WackAMollGame.swift in Sources */,
 				C72961DE1E2852E10046B59E /* UIKit+Ext.swift in Sources */,
 				C72961D41E2852E10046B59E /* CollectionType+Ext.swift in Sources */,
 				C72960631E283A230046B59E /* AppDelegate.swift in Sources */,
 				C729619E1E284E7B0046B59E /* CALayer+Ext.swift in Sources */,
 				C72961D71E2852E10046B59E /* Global.swift in Sources */,
+				C729631D1E2866D30046B59E /* GameLoop.swift in Sources */,
 				C72961D51E2852E10046B59E /* DefaultValue+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
