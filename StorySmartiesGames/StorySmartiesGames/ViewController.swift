@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapped))
         singleTap.numberOfTapsRequired = 1
         
-        let rect = CGRect(x: 20, y: 20, width: (back.image?.size.width)!, height: (back.image?.size.height)!)
+        let rect = CGRect(x: 50, y: 50, width: (back.image?.size.width)!, height: (back.image?.size.height)!)
         cardView = UIView(frame: rect)
         cardView.addGestureRecognizer(singleTap)
         cardView.isUserInteractionEnabled = true

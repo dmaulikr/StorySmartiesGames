@@ -14,8 +14,6 @@
 		C729606D1E283A230046B59E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C729606B1E283A230046B59E /* LaunchScreen.storyboard */; };
 		C72960F51E283D2C0046B59E /* EasyAnimation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72960EE1E283CCA0046B59E /* EasyAnimation.framework */; };
 		C72960F61E283D2C0046B59E /* EasyAnimation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72960EE1E283CCA0046B59E /* EasyAnimation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C72960F91E283D2C0046B59E /* RandomKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72960CC1E283CA30046B59E /* RandomKit.framework */; };
-		C72960FA1E283D2C0046B59E /* RandomKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72960CC1E283CA30046B59E /* RandomKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C72960FD1E283D2C0046B59E /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C729609A1E283C780046B59E /* RxSwift.framework */; };
 		C72960FE1E283D2C0046B59E /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C729609A1E283C780046B59E /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C72961011E283D2C0046B59E /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72960A21E283C780046B59E /* RxCocoa.framework */; };
@@ -43,6 +41,9 @@
 		C72961DF1E2852E10046B59E /* UITextView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961CF1E2852E10046B59E /* UITextView+Ext.swift */; };
 		C72961E01E2852E10046B59E /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961D01E2852E10046B59E /* UIView+Ext.swift */; };
 		C72961E11E2852E10046B59E /* UIView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961D11E2852E10046B59E /* UIView+Rx.swift */; };
+		C72961F71E2856300046B59E /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72961EC1E28562A0046B59E /* Cartography.framework */; };
+		C72961F81E2856300046B59E /* Cartography.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72961EC1E28562A0046B59E /* Cartography.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C72961FC1E2856E60046B59E /* PeterRabbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72961FB1E2856E60046B59E /* PeterRabbit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -256,13 +257,6 @@
 			remoteGlobalIDString = 403482531B8E01ED006C3C7C;
 			remoteInfo = EasyAnimation;
 		};
-		C72960FB1E283D2C0046B59E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C72960C11E283CA30046B59E /* RandomKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 5282009E1BC9C4B6001FDD58;
-			remoteInfo = "RandomKit iOS";
-		};
 		C72960FF1E283D2C0046B59E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C72960821E283C780046B59E /* Rx.xcodeproj */;
@@ -298,6 +292,55 @@
 			remoteGlobalIDString = 5282009E1BC9C4B6001FDD58;
 			remoteInfo = "RandomKit iOS";
 		};
+		C72961EB1E28562A0046B59E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C72961E21E2856290046B59E /* Cartography.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54C96A11195063CD000CDD27;
+			remoteInfo = "Cartography-iOS";
+		};
+		C72961ED1E28562A0046B59E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C72961E21E2856290046B59E /* Cartography.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54C96A1C195063CD000CDD27;
+			remoteInfo = "Cartography-iOS-Tests";
+		};
+		C72961EF1E28562A0046B59E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C72961E21E2856290046B59E /* Cartography.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54F6A838195C20C100313D24;
+			remoteInfo = "Cartography-Mac";
+		};
+		C72961F11E28562A0046B59E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C72961E21E2856290046B59E /* Cartography.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54F6A842195C20C200313D24;
+			remoteInfo = "Cartography-Mac-Tests";
+		};
+		C72961F31E28562A0046B59E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C72961E21E2856290046B59E /* Cartography.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 632F090A1BF1E7AA002431A3;
+			remoteInfo = "Cartography-tvOS";
+		};
+		C72961F51E28562A0046B59E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C72961E21E2856290046B59E /* Cartography.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 632F09221BF1E7FC002431A3;
+			remoteInfo = "Cartography-tvOS-tests";
+		};
+		C72961F91E2856300046B59E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C72961E21E2856290046B59E /* Cartography.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 54C96A10195063CD000CDD27;
+			remoteInfo = "Cartography-iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -308,12 +351,12 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C72960FE1E283D2C0046B59E /* RxSwift.framework in Embed Frameworks */,
+				C72961F81E2856300046B59E /* Cartography.framework in Embed Frameworks */,
 				C72961121E283D2C0046B59E /* RandomKit.framework in Embed Frameworks */,
 				C72960F61E283D2C0046B59E /* EasyAnimation.framework in Embed Frameworks */,
 				C72961021E283D2C0046B59E /* RxCocoa.framework in Embed Frameworks */,
 				C729610E1E283D2C0046B59E /* EasyAnimation.framework in Embed Frameworks */,
 				C72961061E283D2C0046B59E /* RxSwiftExt.framework in Embed Frameworks */,
-				C72960FA1E283D2C0046B59E /* RandomKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +392,8 @@
 		C72961CF1E2852E10046B59E /* UITextView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Ext.swift"; sourceTree = "<group>"; };
 		C72961D01E2852E10046B59E /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		C72961D11E2852E10046B59E /* UIView+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Rx.swift"; sourceTree = "<group>"; };
+		C72961E21E2856290046B59E /* Cartography.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cartography.xcodeproj; path = ../Carthage/Checkouts/Cartography/Cartography.xcodeproj; sourceTree = "<group>"; };
+		C72961FB1E2856E60046B59E /* PeterRabbit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeterRabbit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,12 +402,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C72960FD1E283D2C0046B59E /* RxSwift.framework in Frameworks */,
+				C72961F71E2856300046B59E /* Cartography.framework in Frameworks */,
 				C72961111E283D2C0046B59E /* RandomKit.framework in Frameworks */,
 				C72960F51E283D2C0046B59E /* EasyAnimation.framework in Frameworks */,
 				C72961011E283D2C0046B59E /* RxCocoa.framework in Frameworks */,
 				C729610D1E283D2C0046B59E /* EasyAnimation.framework in Frameworks */,
 				C72961051E283D2C0046B59E /* RxSwiftExt.framework in Frameworks */,
-				C72960F91E283D2C0046B59E /* RandomKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +417,7 @@
 		C72960561E283A230046B59E = {
 			isa = PBXGroup;
 			children = (
+				C72961E21E2856290046B59E /* Cartography.xcodeproj */,
 				C72960D61E283CCA0046B59E /* EasyAnimation.xcodeproj */,
 				C72960C11E283CA30046B59E /* RandomKit.xcodeproj */,
 				C72960821E283C780046B59E /* Rx.xcodeproj */,
@@ -480,8 +526,22 @@
 				C72961D01E2852E10046B59E /* UIView+Ext.swift */,
 				C72961D11E2852E10046B59E /* UIView+Rx.swift */,
 				C729619D1E284E7B0046B59E /* CALayer+Ext.swift */,
+				C72961FB1E2856E60046B59E /* PeterRabbit.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		C72961E31E2856290046B59E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C72961EC1E28562A0046B59E /* Cartography.framework */,
+				C72961EE1E28562A0046B59E /* Cartography-iOS-Tests.xctest */,
+				C72961F01E28562A0046B59E /* Cartography.framework */,
+				C72961F21E28562A0046B59E /* Cartography-Mac-Tests.xctest */,
+				C72961F41E28562A0046B59E /* Cartography.framework */,
+				C72961F61E28562A0046B59E /* Cartography-tvOS-tests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,12 +560,12 @@
 			);
 			dependencies = (
 				C72960F81E283D2C0046B59E /* PBXTargetDependency */,
-				C72960FC1E283D2C0046B59E /* PBXTargetDependency */,
 				C72961001E283D2C0046B59E /* PBXTargetDependency */,
 				C72961041E283D2C0046B59E /* PBXTargetDependency */,
 				C72961081E283D2C0046B59E /* PBXTargetDependency */,
 				C72961101E283D2C0046B59E /* PBXTargetDependency */,
 				C72961141E283D2C0046B59E /* PBXTargetDependency */,
+				C72961FA1E2856300046B59E /* PBXTargetDependency */,
 			);
 			name = StorySmartiesGames;
 			productName = StorySmartiesGames;
@@ -541,6 +601,10 @@
 			productRefGroup = C72960601E283A230046B59E /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = C72961E31E2856290046B59E /* Products */;
+					ProjectRef = C72961E21E2856290046B59E /* Cartography.xcodeproj */;
+				},
 				{
 					ProductGroup = C72960D71E283CCA0046B59E /* Products */;
 					ProjectRef = C72960D61E283CCA0046B59E /* EasyAnimation.xcodeproj */;
@@ -769,6 +833,48 @@
 			remoteRef = C72960EF1E283CCA0046B59E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		C72961EC1E28562A0046B59E /* Cartography.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Cartography.framework;
+			remoteRef = C72961EB1E28562A0046B59E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C72961EE1E28562A0046B59E /* Cartography-iOS-Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Cartography-iOS-Tests.xctest";
+			remoteRef = C72961ED1E28562A0046B59E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C72961F01E28562A0046B59E /* Cartography.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Cartography.framework;
+			remoteRef = C72961EF1E28562A0046B59E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C72961F21E28562A0046B59E /* Cartography-Mac-Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Cartography-Mac-Tests.xctest";
+			remoteRef = C72961F11E28562A0046B59E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C72961F41E28562A0046B59E /* Cartography.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Cartography.framework;
+			remoteRef = C72961F31E28562A0046B59E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C72961F61E28562A0046B59E /* Cartography-tvOS-tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Cartography-tvOS-tests.xctest";
+			remoteRef = C72961F51E28562A0046B59E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -793,6 +899,7 @@
 				C72961DF1E2852E10046B59E /* UITextView+Ext.swift in Sources */,
 				C72961D31E2852E10046B59E /* Array2D.swift in Sources */,
 				C72961D81E2852E10046B59E /* Math+Ext.swift in Sources */,
+				C72961FC1E2856E60046B59E /* PeterRabbit.swift in Sources */,
 				C72961D61E2852E10046B59E /* Emoji.swift in Sources */,
 				C72961E01E2852E10046B59E /* UIView+Ext.swift in Sources */,
 				C72961D21E2852E10046B59E /* Array+Ext.swift in Sources */,
@@ -819,11 +926,6 @@
 			name = EasyAnimation;
 			targetProxy = C72960F71E283D2C0046B59E /* PBXContainerItemProxy */;
 		};
-		C72960FC1E283D2C0046B59E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "RandomKit iOS";
-			targetProxy = C72960FB1E283D2C0046B59E /* PBXContainerItemProxy */;
-		};
 		C72961001E283D2C0046B59E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "RxSwift-iOS";
@@ -848,6 +950,11 @@
 			isa = PBXTargetDependency;
 			name = "RandomKit iOS";
 			targetProxy = C72961131E283D2C0046B59E /* PBXContainerItemProxy */;
+		};
+		C72961FA1E2856300046B59E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Cartography-iOS";
+			targetProxy = C72961F91E2856300046B59E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
