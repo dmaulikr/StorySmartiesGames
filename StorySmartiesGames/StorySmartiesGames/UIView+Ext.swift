@@ -53,4 +53,11 @@ public extension UIView {
 
     }
     
+    
+    public func containerElements(){
+        self.backgroundColor = UIColor.gray.withAlphaComponent(0.4)
+        self.clipsToBounds = false
+        self.layer.cornerRadius = 10
+        self.isUserInteractionEnabled = true
+    }
 }

@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+extension FloatingPoint {
+    public var degreesToRadians: Self { return self * .pi / 180 }
+    public var radiansToDegrees: Self { return self * 180 / .pi }
+}
 
 extension Int {
     
@@ -16,7 +20,17 @@ extension Int {
         guard min < max else {return min}
         return Int(arc4random_uniform(UInt32(1 + max - min))) + min
     }
-
+    public var degreesToRadians: Double { return Double(self) * .pi / 180 }
+    public var radiansToDegrees: Double { return Double(self) * 180 / .pi }
+    
+    
+    public func iterateBackward(current: Int, max: Int) -> Int {
+        return (current<=0) ? (max - 1) : (current - 1)
+    }
+    public func iterateForward(current: Int, max: Int) -> Int {
+        return ( current >= (max - 1) ) ? 0 : (current + 1)
+    }
+    
 }
 extension Double {
     
@@ -34,6 +48,7 @@ extension Double {
     }
     
 }
+
 
 public extension Float {
     func string(fractionDigits:Int = 2) -> String {
