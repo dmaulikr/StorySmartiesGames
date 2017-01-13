@@ -22,9 +22,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        self.view.backgroundColor = UIColor.red
+        
+        self.view.backgroundColor = UIColor.randomColor()
         front = UIImageView(image: UIImage(named: "front.png"))
         back = UIImageView(image: UIImage(named: "back.png"))
         
@@ -41,12 +41,13 @@ class ViewController: UIViewController {
     }
     
     func tapped() {
+        
         if (showingBack) {
-        UIView.transition(from: back, to: front, duration: 1, options: UIViewAnimationOptions.transitionFlipFromRight, completion: nil)
-        showingBack = false
+            UIView.transition(from: back, to: front, duration: 1, options: UIViewAnimationOptions.transitionFlipFromRight, completion: nil)
+            showingBack = false
         } else {
-        UIView.transition(from: front, to: back, duration: 1, options: UIViewAnimationOptions.transitionFlipFromLeft, completion: nil)
-        showingBack = true
+            UIView.transition(from: front, to: back, duration: 1, options: UIViewAnimationOptions.transitionFlipFromLeft, completion: nil)
+            showingBack = true
         }
         
     }
