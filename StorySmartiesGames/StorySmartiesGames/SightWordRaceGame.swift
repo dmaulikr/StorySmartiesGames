@@ -25,17 +25,17 @@ public class SightWordRaceGame: UIView {
     public init(frame: CGRect, words: [String], switchDuration: TimeInterval) {
         super.init(frame: frame)
         ViewController.titleLabel.text = "Sight Word Race Game"
-        ViewController.descriptionLabel.text = "Say the sight word"
+        ViewController.descriptionLabel.text = "Say The Sight Word"
         
         wordList = words
         lifeTime = switchDuration
             
         front = UIButton(frame: frame)
-        front.buttonElements(wordList.chooseOne(), UIColor.black, UIImage(named: " front.png"))
+        front.buttonElements(wordList.chooseOne(), 35.0, UIColor.black)
         front.addTarget(self, action: #selector(tapped(_:)), for: .touchUpInside)
         
         back = UIButton(frame: frame)
-        back.buttonElements(wordList.chooseOne(), UIColor.green, UIImage(named: " back.png"))
+        back.buttonElements(wordList.chooseOne(), 35.0, UIColor.green)
         back.addTarget(self, action: #selector(tapped(_:)), for: .touchUpInside)
         
         self.addSubview(back)

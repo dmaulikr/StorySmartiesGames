@@ -47,6 +47,9 @@
 		C72962021E285E4B0046B59E /* WackAMoleGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72962011E285E4B0046B59E /* WackAMoleGame.swift */; };
 		C72962611E285E740046B59E /* PairsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72962601E285E740046B59E /* PairsGame.swift */; };
 		C729631D1E2866D30046B59E /* GameLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = C729631C1E2866D30046B59E /* GameLoop.swift */; };
+		C7A893B81E2995BF00C54F41 /* MissingWordGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A893B71E2995BF00C54F41 /* MissingWordGame.swift */; };
+		C7A893BA1E29A3CB00C54F41 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A893B91E29A3CB00C54F41 /* UIImage+Ext.swift */; };
+		C7A893BC1E29A65B00C54F41 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A893BB1E29A65B00C54F41 /* UILabel+Ext.swift */; };
 		C7A99F701E29573E000C3812 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A99F6F1E29573E000C3812 /* UIButton+Ext.swift */; };
 		C7F8C2961E28DD8900B19708 /* SightWordRaceGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F8C2951E28DD8900B19708 /* SightWordRaceGame.swift */; };
 /* End PBXBuildFile section */
@@ -402,6 +405,9 @@
 		C72962011E285E4B0046B59E /* WackAMoleGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WackAMoleGame.swift; sourceTree = "<group>"; };
 		C72962601E285E740046B59E /* PairsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairsGame.swift; sourceTree = "<group>"; };
 		C729631C1E2866D30046B59E /* GameLoop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLoop.swift; sourceTree = "<group>"; };
+		C7A893B71E2995BF00C54F41 /* MissingWordGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissingWordGame.swift; sourceTree = "<group>"; };
+		C7A893B91E29A3CB00C54F41 /* UIImage+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		C7A893BB1E29A65B00C54F41 /* UILabel+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		C7A99F6F1E29573E000C3812 /* UIButton+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		C7F8C2951E28DD8900B19708 /* SightWordRaceGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightWordRaceGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -448,9 +454,10 @@
 		C72960611E283A230046B59E /* StorySmartiesGames */ = {
 			isa = PBXGroup;
 			children = (
-				C7F8C2771E28DD4F00B19708 /* SightWordRace */,
-				C72962001E285E2F0046B59E /* WackAMoll */,
-				C72961FF1E285E290046B59E /* Pairs */,
+				C7A893991E2995A900C54F41 /* MissingWordGame */,
+				C7F8C2771E28DD4F00B19708 /* SightWordRaceGame */,
+				C72962001E285E2F0046B59E /* WackAMoleGame */,
+				C72961FF1E285E290046B59E /* PairsGame */,
 				C729619F1E284FE80046B59E /* Extensions */,
 				C72960621E283A230046B59E /* AppDelegate.swift */,
 				C72960641E283A230046B59E /* ViewController.swift */,
@@ -541,6 +548,8 @@
 				C729619D1E284E7B0046B59E /* CALayer+Ext.swift */,
 				C72961FB1E2856E60046B59E /* PeterRabbit.swift */,
 				C7A99F6F1E29573E000C3812 /* UIButton+Ext.swift */,
+				C7A893B91E29A3CB00C54F41 /* UIImage+Ext.swift */,
+				C7A893BB1E29A65B00C54F41 /* UILabel+Ext.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -558,29 +567,37 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C72961FF1E285E290046B59E /* Pairs */ = {
+		C72961FF1E285E290046B59E /* PairsGame */ = {
 			isa = PBXGroup;
 			children = (
 				C72962601E285E740046B59E /* PairsGame.swift */,
 			);
-			name = Pairs;
+			name = PairsGame;
 			sourceTree = "<group>";
 		};
-		C72962001E285E2F0046B59E /* WackAMoll */ = {
+		C72962001E285E2F0046B59E /* WackAMoleGame */ = {
 			isa = PBXGroup;
 			children = (
 				C72962011E285E4B0046B59E /* WackAMoleGame.swift */,
 				C729631C1E2866D30046B59E /* GameLoop.swift */,
 			);
-			name = WackAMoll;
+			name = WackAMoleGame;
 			sourceTree = "<group>";
 		};
-		C7F8C2771E28DD4F00B19708 /* SightWordRace */ = {
+		C7A893991E2995A900C54F41 /* MissingWordGame */ = {
+			isa = PBXGroup;
+			children = (
+				C7A893B71E2995BF00C54F41 /* MissingWordGame.swift */,
+			);
+			name = MissingWordGame;
+			sourceTree = "<group>";
+		};
+		C7F8C2771E28DD4F00B19708 /* SightWordRaceGame */ = {
 			isa = PBXGroup;
 			children = (
 				C7F8C2951E28DD8900B19708 /* SightWordRaceGame.swift */,
 			);
-			name = SightWordRace;
+			name = SightWordRaceGame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -940,6 +957,7 @@
 				C72961D81E2852E10046B59E /* Math+Ext.swift in Sources */,
 				C72961FC1E2856E60046B59E /* PeterRabbit.swift in Sources */,
 				C7A99F701E29573E000C3812 /* UIButton+Ext.swift in Sources */,
+				C7A893BC1E29A65B00C54F41 /* UILabel+Ext.swift in Sources */,
 				C72961D61E2852E10046B59E /* Emoji.swift in Sources */,
 				C72961E01E2852E10046B59E /* UIView+Ext.swift in Sources */,
 				C72961D21E2852E10046B59E /* Array+Ext.swift in Sources */,
@@ -958,6 +976,8 @@
 				C72961D71E2852E10046B59E /* Global.swift in Sources */,
 				C729631D1E2866D30046B59E /* GameLoop.swift in Sources */,
 				C7F8C2961E28DD8900B19708 /* SightWordRaceGame.swift in Sources */,
+				C7A893BA1E29A3CB00C54F41 /* UIImage+Ext.swift in Sources */,
+				C7A893B81E2995BF00C54F41 /* MissingWordGame.swift in Sources */,
 				C72961D51E2852E10046B59E /* DefaultValue+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
