@@ -7,3 +7,17 @@
 //
 
 import Foundation
+import UIKit
+
+extension UILabel {
+
+    public func adjustLabel(){
+        
+        self.numberOfLines = 0
+        self.adjustsFontSizeToFitWidth = true
+        self.lineBreakMode = NSLineBreakMode.byClipping
+        self.minimumScaleFactor = 0.01
+        self.textAlignment = .center
+        self.clipsToBounds = true
+    }
+}

@@ -38,6 +38,17 @@ extension String {
             "you", "your"
         ]
     }
+   
+    public func wordAtIndex(wordNum: Int, wordSeparator: String) -> String? {
+        let arr = self.components(separatedBy: wordSeparator)
+        
+        if arr.count < wordNum {
+            return nil
+        }
+        else {
+            return arr[wordNum]
+        }
+    }
     
     public func splitWithFullStop() -> [String] {
         return self.components(separatedBy: ".").filter { $0.isEmpty != true  }.map { $0.replaceCharacters() }

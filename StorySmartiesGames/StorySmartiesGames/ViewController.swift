@@ -28,18 +28,18 @@ class ViewController: UIViewController {
         
         ViewController.titleLabel = UILabel(frame: CGRect.zero)
         ViewController.titleLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
-        ViewController.titleLabel.numberOfLines = 0
         ViewController.titleLabel.text = ""
-        ViewController.titleLabel.textAlignment = .center
+        ViewController.titleLabel.adjustLabel()
         ViewController.titleLabel.backgroundColor = UIColor.white.withAlphaComponent(0.4)
         self.view.addSubview(ViewController.titleLabel)
         
         ViewController.descriptionLabel = UILabel(frame: CGRect.zero)
         ViewController.descriptionLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
-        ViewController.descriptionLabel.numberOfLines = 0
         ViewController.descriptionLabel.text = ""
-        ViewController.descriptionLabel.textAlignment = .center
+        ViewController.descriptionLabel.adjustLabel()
+        
         ViewController.descriptionLabel.backgroundColor = UIColor.gray.withAlphaComponent(0.4)
+        ViewController.descriptionLabel.layer.cornerRadius = 10
         self.view.addSubview(ViewController.descriptionLabel)
         
         addContainer(levels)
@@ -47,8 +47,9 @@ class ViewController: UIViewController {
         ViewController.pointsLabel = UILabel(frame: CGRect.zero)
         ViewController.pointsLabel.font = UIFont.boldSystemFont(ofSize: 32.0)
         ViewController.pointsLabel.text = ""
-        ViewController.pointsLabel.textAlignment = .center
         ViewController.pointsLabel.backgroundColor = UIColor.gray.withAlphaComponent(0.4)
+        ViewController.pointsLabel.adjustLabel()
+        ViewController.pointsLabel.layer.cornerRadius = 10
         self.view.addSubview(ViewController.pointsLabel)
         
         
@@ -119,10 +120,12 @@ class ViewController: UIViewController {
         
         switch level {
         case 0:
-            ViewController.container = PairsGame(frame: containerFrame, words: words.take(8), startTime: 2, colored: true)
+            ViewController.container = MissingWordGame(frame: containerFrame, words: words, sentences: sentences)
         case 1:
-            ViewController.container = WackAMoleGame(frame: containerFrame, words: words, startTime: 2, minLoop: 30, maxLoop: 50)
+            ViewController.container = PairsGame(frame: containerFrame, words: words.take(8), startTime: 2, colored: true)
         case 2:
+            ViewController.container = WackAMoleGame(frame: containerFrame, words: words, startTime: 2, minLoop: 30, maxLoop: 50)
+        case 3:
             ViewController.container = SightWordRaceGame(frame: containerFrame, words: sightWords, switchDuration: 0.5)
         default:
             break
@@ -143,9 +146,9 @@ class ViewController: UIViewController {
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.right:
-                levels = levels.iterateForward(current: levels, max: 3)
+                levels = levels.iterateForward(current: levels, max: 4)
             case UISwipeGestureRecognizerDirection.left:
-                levels = levels.iterateBackward(current: levels, max: 3)
+                levels = levels.iterateBackward(current: levels, max: 4)
             default:
                 break
             }
@@ -153,6 +156,16 @@ class ViewController: UIViewController {
         
         addContainer(levels)
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //NSLog("Starting gravity")
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     
