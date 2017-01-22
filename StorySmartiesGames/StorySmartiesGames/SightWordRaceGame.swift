@@ -29,13 +29,14 @@ public class SightWordRaceGame: UIView {
         
         wordList = words
         lifeTime = switchDuration
-            
+        let font = UIFont.systemFont(ofSize: 35.0)
+        
         front = UIButton(frame: frame)
-        front.buttonElements(wordList.chooseOne(), 35.0, UIColor.black)
+        front.buttonElements(wordList.chooseOne(), font, UIColor.black)
         front.addTarget(self, action: #selector(tapped(_:)), for: .touchUpInside)
         
         back = UIButton(frame: frame)
-        back.buttonElements(wordList.chooseOne(), 35.0, UIColor.green)
+        back.buttonElements(wordList.chooseOne(), font, UIColor.green)
         back.addTarget(self, action: #selector(tapped(_:)), for: .touchUpInside)
         
         self.addSubview(back)

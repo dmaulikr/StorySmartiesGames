@@ -94,3 +94,16 @@ extension CGFloat {
  
  
 }
+
+extension CGRect {
+    
+    public func increaseRect( _ widthPercentage: CGFloat, _ heightPercentage: CGFloat) -> CGRect {
+        let startWidth = self.width
+        let startHeight = self.height
+        let adjustmentWidth = (startWidth * (widthPercentage / 100.0 )) / 2.0
+        let adjustmentHeight = (startHeight * (heightPercentage / 100.0)) / 2.0
+        return self.insetBy(dx: -adjustmentWidth, dy: -adjustmentHeight)
+    }
+    
+}
+

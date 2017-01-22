@@ -120,7 +120,7 @@ class ViewController: UIViewController {
         
         switch level {
         case 0:
-            ViewController.container = MissingWordGame(frame: containerFrame, words: words, sentences: sentences)
+            ViewController.container = MissingWordGame(frame: containerFrame, sentences: String.peterRabbit)
         case 1:
             ViewController.container = PairsGame(frame: containerFrame, words: words.take(8), startTime: 2, colored: true)
         case 2:
@@ -153,9 +153,7 @@ class ViewController: UIViewController {
                 break
             }
         }
-        
         addContainer(levels)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {

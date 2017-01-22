@@ -391,6 +391,69 @@ extension String {
         }
     }
     
+    public func getNounsAndVerbs() -> (nouns:[String],verbs:[String]) {
+
+        var nouns = [String]()
+        var verbs = [String]()
+        var others = [String]()
+        
+        let linguisticTags = self.toLinguisticTagRanges()
+        zip(linguisticTags.tags, linguisticTags.ranges)
+        .forEach { (type, rangeIndex) in
+            //print(type.pad(by: 20), self[rangeIndex])
+            switch type {
+            case "Noun":
+                nouns.append(self[rangeIndex])
+            case "Verb":
+                verbs.append(self[rangeIndex])
+            default:
+                others.append(self[rangeIndex])
+            }
+        }
+        
+        return (nouns, verbs)
+    }
+    
+    public func changesWordColor (_ wordsToColor : [String], _ color: UIColor) -> NSAttributedString {
+        let text = self
+        let attribute = NSMutableAttributedString.init(string: text)
+        
+        for word in wordsToColor{
+            let range = (text as NSString).range(of: word)
+            attribute.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
+        }
+        
+        return attribute
+    }
+    
+    public func getNonDuplicatedWords( _ minCount: Int, _ maxCount: Int) -> [String] {
+        var words = self.toWords()
+        var tempWords = [String]()
+        var wordsRemoved = [String]()
+        
+        for word in words{
+            if (tempWords.contains(word)){
+                if let index = tempWords.index(of: word){
+                    tempWords.remove(at: index)
+                    words.remove(at: index)
+                }
+                wordsRemoved.append(word)
+                //return nil
+            }else{
+                
+                if wordsRemoved.contains(word){ 
+                    //return nil
+                }else{
+                    tempWords.append(word)
+                    //return word 
+                }
+            }
+        }
+        return tempWords.flatMap {  word -> String?  in
+            return (word.characters.count > minCount && word.characters.count < maxCount) ? word : nil
+        }
+    
+    }
 }
 
 func *(lhs: Character, rhs: Int) -> String {

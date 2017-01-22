@@ -11,10 +11,10 @@ import UIKit
 
 extension UIButton {
     
-    public func buttonElements(_ title: String, _ fontSize: CGFloat, _ color: UIColor, _ withImage: Bool = false, _ image: UIImage? = UIImage()){
+    public func buttonElements(_ title: String, _ font: UIFont, _ color: UIColor, _ withImage: Bool = false, _ image: UIImage? = UIImage()){
         
         let img = withImage ? image?.scaleImageToSize(newSize: self.frame.size) : UIImage()
-        self.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
+        self.titleLabel?.font = font
         self.titleLabel?.adjustLabel()
         self.setTitle(title,for: .normal)
         self.setTitleColor(color.getTextColor(), for: .normal)
@@ -32,7 +32,6 @@ extension UIButton {
         self.setTitle(word,for: .normal)
         self.backgroundColor = color
         self.setTitleColor(color.getTextColor(), for: .normal)
-        
     }
     
     public func setImage(image: UIImage?, inFrame frame: CGRect?, forState state: UIControlState){
@@ -48,7 +47,7 @@ extension UIButton {
         }
         
     }
-      
+    
     
 }
 

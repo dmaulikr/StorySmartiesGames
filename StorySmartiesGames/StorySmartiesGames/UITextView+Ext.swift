@@ -54,4 +54,5 @@ extension UITextView : UITextViewExtensions {
         let offset = self.contentOffset
         return rect.offsetBy(dx: -offset.x, dy: -offset.y)
     }
+    
 }
