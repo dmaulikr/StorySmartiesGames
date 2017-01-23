@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         self.view.addSubview(ViewController.pointsLabel)
         
         ViewController.pointsLabelLayer.frame = CGRect(x: 0, y: 0, width: self.view.frame.width - 40, height: 90) 
-        ViewController.pointsLabelLayer.backgroundColor = UIColor.green.withAlphaComponent(0.2).cgColor
+        ViewController.pointsLabelLayer.backgroundColor = UIColor.green.withAlphaComponent(0.3).cgColor
         ViewController.pointsLabelLayer.cornerRadius = 10
         ViewController.pointsLabel.layer.addSublayer(ViewController.pointsLabelLayer)
         
@@ -125,7 +125,7 @@ class ViewController: UIViewController {
         
         switch level {
         case 0:
-            ViewController.container = MissingWordGame(frame: containerFrame, sentences: String.peterRabbit, startTime: 4)
+            ViewController.container = MissingWordGame(frame: containerFrame, sentences: String.peterRabbit, startTime: 4, colored: true)
         case 1:
             ViewController.container = PairsGame(frame: containerFrame, words: words.take(8), startTime: 4, colored: true)
         case 2:
