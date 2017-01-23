@@ -92,6 +92,9 @@ extension CGFloat {
         return value
     }
  
+    public func getPercentangeValue(_ percent : CGFloat) -> CGFloat{
+        return ( (self * percent) / CGFloat(100) )
+    }
  
 }
 

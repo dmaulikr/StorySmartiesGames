@@ -37,6 +37,7 @@ public class WackAMoleGame : UIView {
         super.init(frame: frame)
         
         ViewController.titleLabel.text = "Wack A Mole Game"
+        ViewController.descriptionLabel.text = "Tap the following word"
         
         if (minLoop >= maxLoop) {
             print("Min Loop must be greater than Max Loop")
@@ -100,7 +101,9 @@ public class WackAMoleGame : UIView {
         }
         
         Timer.scheduledTimer(withTimeInterval: startTime, repeats: false) { time in 
-            if self.play == false { self.play = true }            
+            if self.play == false { 
+                self.play = true 
+            }            
         }
         
         

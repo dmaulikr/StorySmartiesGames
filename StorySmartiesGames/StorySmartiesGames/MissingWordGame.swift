@@ -16,6 +16,7 @@ public class MissingWordGame : UIView {
     
     var buttons = [UIButton]()
     var buttonsPositions = [CGPoint]()
+    var buttonsColors = [UIColor]()
     
     var currentSentence = String()
     var sentenceIndex = 0
@@ -39,11 +40,11 @@ public class MissingWordGame : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(frame: CGRect, sentences: [String]) {
+    public init(frame: CGRect, sentences: [String], startTime: TimeInterval) {
         super.init(frame: frame)
         
         ViewController.titleLabel.text = "Missing Word Game"
-        ViewController.descriptionLabel.text = "Drag the missing word in the sentence"
+        ViewController.descriptionLabel.text = "Drag the words within the sentences"
         
         animator = UIDynamicAnimator(referenceView: self)
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
@@ -57,9 +58,14 @@ public class MissingWordGame : UIView {
         bgColor = UIColor.clear
         
         setupTextview()
-        setUpWords()
-        setupRectsInTextview()
-        setupButtons()
+        
+        Timer.scheduledTimer (withTimeInterval: startTime, repeats: false) { _ in 
+            self.setUpWords()
+            self.setupRectsInTextview()
+            self.setupButtons()
+        }
+        
+        
     }
     
     deinit {
@@ -107,11 +113,14 @@ public class MissingWordGame : UIView {
         let potentialWords = currentSentence.getNonDuplicatedWords(minCount, maxCount)
 
         wordsToChoose = (potentialWords.count > 5) ? potentialWords.take(5) : potentialWords
-        print(wordsToChoose)
-        
+        buttonsColors = wordsToChoose.flatMap { word -> UIColor in return UIColor.randomColor() }
         mainTextview.attributedText = currentSentence.changesWordColor(wordsToChoose, hiddenTextColor)
         mainTextview.font = font
         mainTextview.textAlignment = .center
+        
+        ViewController.points = 0
+        ViewController.pointsLabel.text = "\(ViewController.points)/\((wordsToChoose.count * 2)) Attempts Left" 
+        ViewController.pointsLabelLayer.frame.size.width = ViewController.pointsLabel.frame.width
     }
     
     
@@ -140,14 +149,16 @@ public class MissingWordGame : UIView {
                 wordView.backgroundColor = bgColor
                 wordView.setTitleColor(UIColor.white, for: UIControlState.normal) 
                 wordView.setTitle(text, for: UIControlState.normal)
-                wordView.center.y = wordView.center.y + mainTextview.frame.minY
+                wordView.center.y = wordView.center.y + mainTextview.frame.minY + 1
                 wordView.layer.cornerRadius = 10
                 wordView.clipsToBounds = true
                 
                 wordView.frame = wordView.frame.increaseRect(10, 2)
                 
-                wordView.layer.borderColor = UIColor.randomColor().cgColor
-                wordView.layer.borderWidth = 2.0
+                if let index = wordsToChoose.index(of: highlightedText) {
+                    wordView.layer.borderColor = buttonsColors[index].cgColor
+                    wordView.layer.borderWidth = 2.0
+                }
                 
                 self.insertSubview(wordView, aboveSubview: mainTextview)
                 textViewRects.append((wordView, highlightedText))
@@ -185,7 +196,7 @@ public class MissingWordGame : UIView {
             //if ( !checkIntersetors(frame) ){
             
                 let button = UIButton(frame: frame)
-                button.buttonElements("\(wordsToChoose[index])", newFont, UIColor.randomColor())
+                button.buttonElements("\(wordsToChoose[index])", newFont, buttonsColors[index])
                 self.insertSubview(button, aboveSubview: mainTextview)
                 
                 let pan = UIPanGestureRecognizer(target: self, action: #selector(onPan(pan:)))
@@ -194,11 +205,13 @@ public class MissingWordGame : UIView {
                 button.layer.zPosition = 1
                 button.frame = button.frame.increaseRect(10, 6)
                 buttons.append(button)
-                buttonsPositions.append(button.center)
             //}
             
         }
         
+        buttonsPositions = buttons.flatMap{ but -> CGPoint in
+            return but.center
+        }
         
     }
     
@@ -215,29 +228,6 @@ public class MissingWordGame : UIView {
         }else{
             return false
         }
-    }
-    
-    public func reset(){
-        
-        for v in self.subviews{
-            for b in buttons{
-                if v == b {
-                    v.removeFromSuperview()
-                }
-            }
-            for (r,_) in textViewRects {
-                if v == r {
-                    v.removeFromSuperview()
-                }
-            }
-        }
-        
-        for b in buttons{
-            b.removeFromSuperview()
-        }
-        buttons.removeAll()
-        textViewRects.removeAll()
-        
     }
     
     
@@ -257,7 +247,7 @@ public class MissingWordGame : UIView {
         switch pan.state {
         case .began:
             button.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-            
+        
         case .changed: 
             button.center = location
             button.layer.zPosition = 2
@@ -300,6 +290,7 @@ public class MissingWordGame : UIView {
                 textViewRects[wasButtonIntersectingIndex].view.setTitle("", for: UIControlState.normal) 
                 textViewRects[wasButtonIntersectingIndex].view.layer.borderColor = UIColor.clear.cgColor
                 textViewRects[wasButtonIntersectingIndex].view.layer.borderWidth = 0.0
+                
             }
             
             self.snapBehavior = UISnapBehavior(item: button, snapTo: snapPoint)
@@ -309,6 +300,14 @@ public class MissingWordGame : UIView {
                 view.backgroundColor = bgColor
             }
             
+            let maxScore = (wordsToChoose.count * 2)
+            let healthDecrement = ViewController.pointsLabel.frame.width / CGFloat(maxScore)
+            ViewController.points += 1
+            ViewController.pointsLabel.text = "\(ViewController.points)/\(maxScore) Attempts Left" 
+            
+            let newWidth = ViewController.pointsLabel.frame.width - (healthDecrement * CGFloat(ViewController.points)) 
+            ViewController.pointsLabelLayer.frame.size.width =  newWidth
+
             //print("Ended", location) 
         default:
             print(pan)
@@ -316,6 +315,36 @@ public class MissingWordGame : UIView {
         
       
     }
+    
+    
+    public func reset(){
+        
+        for v in self.subviews{
+            for b in buttons{
+                if v == b {
+                    v.removeFromSuperview()
+                }
+            }
+            for (r,_) in textViewRects {
+                if v == r {
+                    v.removeFromSuperview()
+                }
+            }
+        }
+        
+        for b in buttons{
+            b.removeFromSuperview()
+        }
+        for (b,_) in textViewRects {
+            b.removeFromSuperview()
+        }
+        buttons.removeAll()
+        buttonsColors.removeAll()
+        buttonsPositions.removeAll()
+        textViewRects.removeAll()
+        wordsToChoose.removeAll()
+    }
+    
     
 }
 

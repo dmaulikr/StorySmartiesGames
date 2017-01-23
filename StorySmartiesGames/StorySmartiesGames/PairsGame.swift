@@ -117,6 +117,7 @@ public class PairsGame : UIView {
                     element.button.backgroundColor = self.mainColor
                     element.button.setTitle(self.mainText,for: .normal)
                 }
+                ViewController.pointsLabel.text = (ViewController.points == 1) ? "Found \(ViewController.points) Pair" : "Found \(ViewController.points) Pairs"
                 self.play = true
             }            
         }

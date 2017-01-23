@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     public static var titleLabel = UILabel()
     public static var descriptionLabel = UILabel()
     public static var pointsLabel = UILabel()
+    public static var pointsLabelLayer = CALayer()
     public static var points = 0
     
     var levels = 0
@@ -28,16 +29,15 @@ class ViewController: UIViewController {
         
         ViewController.titleLabel = UILabel(frame: CGRect.zero)
         ViewController.titleLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
-        ViewController.titleLabel.text = ""
+        //ViewController.titleLabel.text = ""
         ViewController.titleLabel.adjustLabel()
         ViewController.titleLabel.backgroundColor = UIColor.white.withAlphaComponent(0.4)
         self.view.addSubview(ViewController.titleLabel)
         
         ViewController.descriptionLabel = UILabel(frame: CGRect.zero)
         ViewController.descriptionLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
-        ViewController.descriptionLabel.text = ""
+        //ViewController.descriptionLabel.text = ""
         ViewController.descriptionLabel.adjustLabel()
-        
         ViewController.descriptionLabel.backgroundColor = UIColor.gray.withAlphaComponent(0.4)
         ViewController.descriptionLabel.layer.cornerRadius = 10
         self.view.addSubview(ViewController.descriptionLabel)
@@ -45,13 +45,17 @@ class ViewController: UIViewController {
         addContainer(levels)
         
         ViewController.pointsLabel = UILabel(frame: CGRect.zero)
-        ViewController.pointsLabel.font = UIFont.boldSystemFont(ofSize: 32.0)
-        ViewController.pointsLabel.text = ""
+        ViewController.pointsLabel.font = UIFont.boldSystemFont(ofSize: 28.0)
+        //ViewController.pointsLabel.text = ""
         ViewController.pointsLabel.backgroundColor = UIColor.gray.withAlphaComponent(0.4)
         ViewController.pointsLabel.adjustLabel()
         ViewController.pointsLabel.layer.cornerRadius = 10
         self.view.addSubview(ViewController.pointsLabel)
         
+        ViewController.pointsLabelLayer.frame = CGRect(x: 0, y: 0, width: self.view.frame.width - 40, height: 90) 
+        ViewController.pointsLabelLayer.backgroundColor = UIColor.green.withAlphaComponent(0.2).cgColor
+        ViewController.pointsLabelLayer.cornerRadius = 10
+        ViewController.pointsLabel.layer.addSublayer(ViewController.pointsLabelLayer)
         
         constrain(ViewController.titleLabel, self.view) { view, view2 in
             view.width   == view2.width - 40
@@ -101,6 +105,7 @@ class ViewController: UIViewController {
         ViewController.container.removeFromSuperview()
         ViewController.points = 0
         ViewController.pointsLabel.text = ""
+        ViewController.pointsLabelLayer.frame.size.width = ViewController.pointsLabel.frame.width
         ViewController.descriptionLabel.text = ""
     }
     
@@ -120,11 +125,11 @@ class ViewController: UIViewController {
         
         switch level {
         case 0:
-            ViewController.container = MissingWordGame(frame: containerFrame, sentences: String.peterRabbit)
+            ViewController.container = MissingWordGame(frame: containerFrame, sentences: String.peterRabbit, startTime: 4)
         case 1:
-            ViewController.container = PairsGame(frame: containerFrame, words: words.take(8), startTime: 2, colored: true)
+            ViewController.container = PairsGame(frame: containerFrame, words: words.take(8), startTime: 4, colored: true)
         case 2:
-            ViewController.container = WackAMoleGame(frame: containerFrame, words: words, startTime: 2, minLoop: 30, maxLoop: 50)
+            ViewController.container = WackAMoleGame(frame: containerFrame, words: words, startTime: 4, minLoop: 30, maxLoop: 50)
         case 3:
             ViewController.container = SightWordRaceGame(frame: containerFrame, words: sightWords, switchDuration: 0.5)
         default:
