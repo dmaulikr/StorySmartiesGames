@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-public class SightWordRaceGame: UIView {
+public class SightWordRaceGame: GameViewBase {
     
-    public var back = UIButton()//UIImageView!
-    public var front = UIButton()//UIImageView!
+    public var back = QuickButton()//UIImageView!
+    public var front = QuickButton()//UIImageView!
     var showingBack = true
     
     var wordList = [String]()
@@ -26,16 +26,17 @@ public class SightWordRaceGame: UIView {
         super.init(frame: frame)
         ViewController.titleLabel.text = "Sight Word Race Game"
         ViewController.descriptionLabel.text = "Say The Sight Word"
+        ViewController.fontSize = 50.0
         
         wordList = words
         lifeTime = switchDuration
-        let font = UIFont.systemFont(ofSize: 35.0)
+        let font = UIFont.systemFont(ofSize: ViewController.fontSize)
         
-        front = UIButton(frame: frame)
+        front = QuickButton(frame: frame)
         front.buttonElements(wordList.chooseOne(), font, UIColor.black)
         front.addTarget(self, action: #selector(tapped(_:)), for: .touchUpInside)
         
-        back = UIButton(frame: frame)
+        back = QuickButton(frame: frame)
         back.buttonElements(wordList.chooseOne(), font, UIColor.green)
         back.addTarget(self, action: #selector(tapped(_:)), for: .touchUpInside)
         

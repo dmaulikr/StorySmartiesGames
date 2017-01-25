@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-public class WackAMoleGame : UIView {
+public class WackAMoleGame : GameViewBase {
     
     public var buttons = [UIButton]() 
     public var gridColor = UIColor.red

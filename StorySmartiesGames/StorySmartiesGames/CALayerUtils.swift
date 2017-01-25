@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 
-extension CALayer {
+public protocol CALayerUtils { }
+
+extension CALayerUtils where Self : CALayer {
     
     public func addDashedLine(dotSize: CGFloat, count: CGFloat) {
         

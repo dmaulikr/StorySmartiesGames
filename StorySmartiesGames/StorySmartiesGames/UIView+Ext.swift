@@ -52,18 +52,6 @@ public extension UIView {
         self.translatesAutoresizingMaskIntoConstraints = true
 
     }
-    
-    
-    public func containerElements(){
-        self.backgroundColor = UIColor.gray.withAlphaComponent(0.4)
-        self.clipsToBounds = true
-        self.layer.cornerRadius = 10
-        self.isUserInteractionEnabled = true
-    }
-    
-    
-    
-    
 
     
 }

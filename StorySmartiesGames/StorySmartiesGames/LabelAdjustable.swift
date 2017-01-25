@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 
-extension UILabel {
+public protocol LabelAdjustable { }
+
+
+extension LabelAdjustable where Self : UILabel {
 
     public func adjustLabel(){
         

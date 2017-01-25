@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class PairsGame : UIView {
+public class PairsGame : GameViewBase {
     
     // two-dimensional array of your Cell views. You create them elsewhere and add 
     // all of them to GridView

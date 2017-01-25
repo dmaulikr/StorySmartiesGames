@@ -13,15 +13,21 @@ import RxSwift
 import RandomKit
 import Cartography
 
+extension UILabel : LabelAdjustable {}
+
 class ViewController: UIViewController {
     
     let disposeBag = DisposeBag()
-    public static var container = UIView()
+    public static var container = GameViewBase()
     public static var titleLabel = UILabel()
     public static var descriptionLabel = UILabel()
     public static var pointsLabel = UILabel()
     public static var pointsLabelLayer = CALayer()
     public static var points = 0
+    public static let maxWordCount = 250
+    public static let minWordCount = 30
+    public static var fontSize : CGFloat = 17.0
+    
     let speechSynth = AVSpeechSynthesizer()
     let speechFinished = PublishSubject<Void>()
     var levels = 0
@@ -158,7 +164,7 @@ class ViewController: UIViewController {
         
         switch level {
         case 0:
-            ViewController.container = MissingWordGame(frame: containerFrame, sentences: String.peterRabbit, startTime: 4, colored: false, color: UIColor.cyan)
+            ViewController.container = MissingWordGame(frame: containerFrame, sentences: String.peterRabbit, attemps: 2, startTime: 4, colored: false, color: UIColor.cyan)
         case 1:
             ViewController.container = PairsGame(frame: containerFrame, words: words.take(8), startTime: 4, colored: true)
         case 2:

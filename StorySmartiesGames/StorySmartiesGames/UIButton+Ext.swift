@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 
-extension UIButton {
+
+
+public class QuickButton : UIButton {
+//extension UIButton {
     
     public func buttonElements(_ title: String, _ font: UIFont, _ color: UIColor, _ withImage: Bool = false, _ image: UIImage? = UIImage()){
         

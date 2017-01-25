@@ -7,9 +7,12 @@
 //
 
 import Foundation
+import RandomKit
 import UIKit
 
-public class MissingWordGame : UIView {
+extension CALayer : CALayerUtils { }
+
+public class MissingWordGame : GameViewBase {
     
     var animator : UIDynamicAnimator? = nil
     var snapBehavior: UISnapBehavior!
@@ -26,7 +29,7 @@ public class MissingWordGame : UIView {
     var mainTextview = UITextView() 
     
     var font = UIFont()
-    var fontSize : CGFloat = 20.0
+    var retryFontSize : CGFloat = 50.0
     var bgColor = UIColor()
     var bgColored = false
     var hiddingTextColor = UIColor.clear
@@ -34,12 +37,14 @@ public class MissingWordGame : UIView {
     var snapToText = CGPoint()
     var wordsToChoose = [String]()
     var textViewRects = [(view: UIButton, text: String)]()
-    var tempWordsFoundIndexes = [Int]()
+    var tempWordsFound = [UIButton]()
     
     var wasButtonIntersecting = false
+    var wasButtonIntersectingOther = false
     var wasButtonIntersectingIndex = 0
     var scoreCount = 0
     var maxScore = 0
+    var extraAttemps = 0
     
     var retryLayer = CALayer()
     var play = false
@@ -48,13 +53,14 @@ public class MissingWordGame : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(frame: CGRect, sentences: [String], startTime: TimeInterval, colored: Bool, color: UIColor) {
+    public init(frame: CGRect, sentences: [String], attemps: Int, startTime: TimeInterval, colored: Bool, color: UIColor) {
         super.init(frame: frame)
         
         ViewController.titleLabel.text = "Missing Word Game"
         ViewController.descriptionLabel.text = "Drag the words within the sentences"
+        ViewController.fontSize = 22.0
         
-        initialSetup(sentences, colored, color)
+        initialSetup(sentences, colored, color, attemps)
         playAfterTimer(duration: startTime)
         
     }
@@ -65,27 +71,28 @@ public class MissingWordGame : UIView {
         print("Missing word game", #function)
     }
     
-    public func initialSetup(_ sentences: [String], _ colored: Bool, _ colors: UIColor){
+    public func initialSetup(_ sentences: [String], _ colored: Bool, _ colors: UIColor, _ plusAttemps: Int){
         
         let fullBook = sentences.joined(separator: " ")
         let tempSentence = fullBook.getSentencesWithSentenceTerminator()
         
-        let maxWordCount = 250
-        let minWordCount = 30
+        
         let smallerSentences = tempSentence.flatMap { sent -> [String] in
-            if sent.characters.count > maxWordCount && sent.characters.count < (maxWordCount * 2) {
+            if sent.characters.count > ViewController.maxWordCount && sent.characters.count < (ViewController.maxWordCount * 2) {
                 return sent.getSmallerSentencesWithCloseQuotesAndPunctuations()
             }else{
                 return [sent]
             }
         }
-        sentencesS = smallerSentences.orderBySentenceCount(min: minWordCount, max: maxWordCount)
+        sentencesS = smallerSentences.orderBySentenceCount(min: ViewController.minWordCount, max: ViewController.maxWordCount)
         currentSentence = sentencesS[sentenceIndex]
         
-        font = UIFont.systemFont(ofSize: fontSize)
+        font = UIFont.systemFont(ofSize: ViewController.fontSize)
         bgColor = UIColor.clear
         bgColored = colored
         buttonsColor = colors
+        extraAttemps = plusAttemps
+        
         animator = UIDynamicAnimator(referenceView: self)
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         //tap.numberOfTapsRequired = 2
@@ -129,10 +136,11 @@ public class MissingWordGame : UIView {
             return potentialWords[ind]
         }
         wordsToChoose = (allmostWords.count < 2 && potentialWords.count > maxOffset) ? potentialWords.take(2) : allmostWords
+        wordsToChoose.shuffle()
         buttonsColors = wordsToChoose.flatMap { word -> UIColor in return UIColor.randomColor() }
         
         scoreCount = 0
-        maxScore = (wordsToChoose.count + 1)
+        maxScore = (wordsToChoose.count + extraAttemps)
         
         mainTextview.text = currentSentence
         mainTextview.attributedText = currentSentence.changesWordColor(wordsToChoose, hiddingTextColor)
@@ -217,7 +225,7 @@ public class MissingWordGame : UIView {
             let frame = CGRect(x: xp, y: yp, width: width, height: height)
             //if ( !checkIntersetors(frame) ){
             
-                let button = UIButton(frame: frame)
+                let button = QuickButton(frame: frame)
                 let color = bgColored ? buttonsColors[index] : buttonsColor
                 button.buttonElements("\(wordsToChoose[index])", newFont, color)
                 self.insertSubview(button, aboveSubview: mainTextview)
@@ -265,6 +273,7 @@ public class MissingWordGame : UIView {
     public func nextSentence(){
         sentenceIndex = sentenceIndex.iterateForward(current: sentenceIndex, max: sentencesS.count)
         currentSentence = sentencesS[sentenceIndex]
+        //mainTextview.text = currentSentence
         start()
     }
     
@@ -294,7 +303,7 @@ public class MissingWordGame : UIView {
             self.layer.insertSublayer(retryLayer, at: 0)
             retryLayer.startBlink()
             
-            mainTextview.font = UIFont.systemFont(ofSize: 40)
+            mainTextview.font = UIFont.systemFont(ofSize: retryFontSize)
             mainTextview.text = "RETRY?"
             ViewController.pointsLabel.text = "Game Over!" 
         }
@@ -318,6 +327,7 @@ public class MissingWordGame : UIView {
                 button.center = location
                 button.layer.zPosition = 2
                 wasButtonIntersecting = false
+                wasButtonIntersectingOther = false
                 wasButtonIntersectingIndex = 0
                 snapToText = CGPoint.zero
             
@@ -329,9 +339,10 @@ public class MissingWordGame : UIView {
                         snapToText = view.center
                         wasButtonIntersecting = true
                         wasButtonIntersectingIndex = ind
-                        tempWordsFoundIndexes.append(ind)
+                        tempWordsFound.append(view)
                         
-                    } else if (button.frame.intersects(view.frame) && !tempWordsFoundIndexes.contains(ind)){
+                    } else if (button.frame.intersects(view.frame) && !tempWordsFound.contains(view)){
+                         wasButtonIntersectingOther = true
                         view.backgroundColor = buttonsColor
                     }else{
                         view.backgroundColor = bgColor
@@ -364,8 +375,12 @@ public class MissingWordGame : UIView {
                     textViewRects[wasButtonIntersectingIndex].view.layer.borderWidth = 0.0
                     
                     scoreCount += 1
+                    ViewController.points += 1
                 }
                 
+                if (wasButtonIntersectingOther) {
+                    ViewController.points += 1
+                }
                 self.snapBehavior = UISnapBehavior(item: button, snapTo: snapPoint)
                 self.animator?.addBehavior(self.snapBehavior)
                 
@@ -374,7 +389,6 @@ public class MissingWordGame : UIView {
                 }
                 
                 let healthDecrement = ViewController.pointsLabel.frame.width / CGFloat(maxScore)
-                ViewController.points += 1
                 ViewController.pointsLabel.text = "You have \(maxScore - ViewController.points) attempts left" 
                 
                 let newWidth = ViewController.pointsLabel.frame.width - (healthDecrement * CGFloat(ViewController.points)) 
@@ -438,7 +452,7 @@ public class MissingWordGame : UIView {
         buttonsPositions.removeAll()
         textViewRects.removeAll()
         wordsToChoose.removeAll()
-        tempWordsFoundIndexes.removeAll()
+        tempWordsFound.removeAll()
         
     }
     
