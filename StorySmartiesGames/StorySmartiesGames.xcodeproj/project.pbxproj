@@ -372,6 +372,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C70B51611E375DF70034FD8F /* PairsPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PairsPlayground.playground; sourceTree = SOURCE_ROOT; };
 		C729605F1E283A230046B59E /* StorySmartiesGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorySmartiesGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72960621E283A230046B59E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C72960641E283A230046B59E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -454,6 +455,7 @@
 		C72960611E283A230046B59E /* StorySmartiesGames */ = {
 			isa = PBXGroup;
 			children = (
+				C70B51611E375DF70034FD8F /* PairsPlayground.playground */,
 				C7A893991E2995A900C54F41 /* MissingWordGame */,
 				C7F8C2771E28DD4F00B19708 /* SightWordRaceGame */,
 				C72962001E285E2F0046B59E /* WackAMoleGame */,

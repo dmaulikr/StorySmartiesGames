@@ -6,6 +6,7 @@
 //  Copyright © 2017 GEORGE QUENTIN. All rights reserved.
 //
 
+import AVFoundation
 import UIKit
 import EasyAnimation
 import RxSwift
@@ -14,18 +15,50 @@ import Cartography
 
 class ViewController: UIViewController {
     
+    let disposeBag = DisposeBag()
     public static var container = UIView()
     public static var titleLabel = UILabel()
     public static var descriptionLabel = UILabel()
     public static var pointsLabel = UILabel()
     public static var pointsLabelLayer = CALayer()
     public static var points = 0
-    
+    let speechSynth = AVSpeechSynthesizer()
+    let speechFinished = PublishSubject<Void>()
     var levels = 0
+    
+    func say(text: String) -> Observable<Void> {
+        let utt = AVSpeechUtterance(string: text)
+        speechSynth.speak(utt)
+        return speechFinished.asObservable()
+    }
+    
+    func say2(text: String) -> Observable<Void> {
+        let utt = AVSpeechUtterance(string: text)
+        return Observable.just(utt)
+            .do { self.speechSynth.speak(utt) }
+            .ignoreElements()
+            .map { _ in () }
+            .concat(speechFinished.asObservable())
+    }
+
+    func say3(text: String) -> Observable<Void> {
+        return Observable.create { observer in 
+            let utt = AVSpeechUtterance(string: text)
+            self.speechSynth.speak(utt)
+            return self.speechFinished.bindTo(observer)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
+        speechSynth.delegate = self
+        
+//        say3(text: "hi george")
+//        .subscribe(onNext: {
+//            print("speech finished")
+//        })
+//        .addDisposableTo(disposeBag)
         
         ViewController.titleLabel = UILabel(frame: CGRect.zero)
         ViewController.titleLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
@@ -125,7 +158,7 @@ class ViewController: UIViewController {
         
         switch level {
         case 0:
-            ViewController.container = MissingWordGame(frame: containerFrame, sentences: String.peterRabbit, startTime: 4, colored: true)
+            ViewController.container = MissingWordGame(frame: containerFrame, sentences: String.peterRabbit, startTime: 4, colored: false, color: UIColor.cyan)
         case 1:
             ViewController.container = PairsGame(frame: containerFrame, words: words.take(8), startTime: 4, colored: true)
         case 2:
@@ -172,5 +205,11 @@ class ViewController: UIViewController {
     }
     
     
+}
+
+extension ViewController : AVSpeechSynthesizerDelegate {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        speechFinished.onNext()
+    }
 }
 

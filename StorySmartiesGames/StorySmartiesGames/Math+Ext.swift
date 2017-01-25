@@ -110,3 +110,19 @@ extension CGRect {
     
 }
 
+extension Collection where Iterator.Element == Int {
+
+    public func getPairs(advanceFirstBy: Int, advanceSecondBy: Int) -> [(Int, Int)] {
+        
+        guard let list = self as? [Int], list.count > 0 else { return [] }
+        
+        return list.enumerated().flatMap{ (ind, index) -> (Int, Int)? in
+            if ind < list.count - 1 {
+                return (ind != 0) ? ( index + advanceFirstBy, list[ind + 1] + advanceSecondBy) : ( index, list[ind + 1] + advanceSecondBy )
+            }else{
+                return nil
+            }
+        }
+    }
+    
+}

@@ -20,4 +20,5 @@ extension UILabel {
         self.textAlignment = .center
         self.clipsToBounds = true
     }
+
 }

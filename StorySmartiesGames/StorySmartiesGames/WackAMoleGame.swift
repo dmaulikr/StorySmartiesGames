@@ -28,6 +28,8 @@ public class WackAMoleGame : UIView {
     private var play = false
     
     var gameLoop : GameLoop?
+    var maxCounter = 0
+    var counter = 0 
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -100,12 +102,16 @@ public class WackAMoleGame : UIView {
             }
         }
         
+        
         Timer.scheduledTimer(withTimeInterval: startTime, repeats: false) { time in 
             if self.play == false { 
                 self.play = true 
-            }            
+            }   
+            
+            self.maxCounter = Int(ViewController.pointsLabelLayer.frame.size.width) 
+            self.counter = self.maxCounter
+            
         }
-        
         
         var randomTimeLoop = Int.randomi(minLoop, maxLoop)
         var gameLoopTime = 0
@@ -114,12 +120,17 @@ public class WackAMoleGame : UIView {
         wordToHit = wordList.chooseOne()
         self.cardsClosed = self.buttons
         
+        
+        
         gameLoop = GameLoop() { [weak self] in
             
             guard let strongSelf = self else { return }
             if (strongSelf.play ) {
                 
+                strongSelf.counter -= 1
                 ViewController.pointsLabel.text = (ViewController.points == 1) ? "\(ViewController.points) Point" : "\(ViewController.points) Points"
+                ViewController.pointsLabelLayer.frame.size.width = CGFloat(strongSelf.counter)
+                //print(self?.counter)
                 
                 if strongSelf.changeTitlelabel == true{
                     strongSelf.clearGrid()
@@ -165,6 +176,13 @@ public class WackAMoleGame : UIView {
                         strongSelf.cardsOpenedLifeTime.remove(at: ind)
                     }
                 }
+                
+                if (strongSelf.counter <= 0){
+                    
+                    ViewController.pointsLabel.text = "Game Over, You have \(ViewController.points) Points"
+                    strongSelf.play = false
+                }
+                
             }
             gameLoopTime += 1
         }
@@ -175,7 +193,6 @@ public class WackAMoleGame : UIView {
     deinit {
         gameLoop?.stop()
         gameLoop = nil
-        //print("WackAMole", #function)
     }
     
     func clearGrid(){
@@ -217,7 +234,6 @@ public class WackAMoleGame : UIView {
             }
         }
         previousCards.removeAll()
-        
         previousCards = temp
         
     }
@@ -226,6 +242,7 @@ public class WackAMoleGame : UIView {
         
         if (but.backgroundColor == self.mainColor && wordToHit == but.titleLabel?.text){
             
+            counter = maxCounter 
             ViewController.points += 1
             wordToHit = wordList.chooseOne()
             changeTitlelabel = true

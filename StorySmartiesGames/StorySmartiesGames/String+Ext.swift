@@ -267,6 +267,7 @@ extension String {
         return (t, r)
     }
     
+    
     // FIXME: Move `SentenceTerminator`s after CloseQuote and Whitespace
     public func toSentences() -> [String] {
         
@@ -427,7 +428,17 @@ extension String {
     }
     
     public func getNonDuplicatedWords( _ minCount: Int, _ maxCount: Int) -> [String] {
-        var words = self.toWords()
+        let originalWords = self.toWords()
+        var words = originalWords
+        for (ind,w) in originalWords.enumerated() {
+            if (originalWords.contains("\(w)s") && w.characters.count > minCount){
+                words.remove(at: ind)
+                if let removePluralIndex = words.index(of: "\(w)s") {
+                    words.remove(at: removePluralIndex)
+                }
+            }
+        }
+        
         var tempWords = [String]()
         var wordsRemoved = [String]()
         
@@ -454,6 +465,28 @@ extension String {
         }
     
     }
+    
+    public func getSentencesWithSentenceTerminator () -> [String] {
+        let (tags, ranges) = self.toLinguisticTagRanges()
+        let indexes = tags.getIndexesFromtags()
+        let pairRangesIndexes = indexes.getPairs(advanceFirstBy: 2, advanceSecondBy: 0) 
+        let sentenceRanges = pairRangesIndexes.map { ranges[$0.0].lowerBound ..< ranges[$0.1].upperBound }
+        return sentenceRanges.flatMap{ self[$0] }
+    }
+    public func getSmallerSentencesWithCloseQuotesAndPunctuations () -> [String] {
+        
+        let (tags, ranges) = self.toLinguisticTagRanges()
+        var splitIndex = tags.enumerated().flatMap { (ind,tag) -> Int? in
+            return (ind > 70 && (tag == "CloseQuote" || tag == "Punctuation")) ? ind : nil
+            }.removeAfter(index:0)
+        splitIndex.insert(0, at: 0)
+        splitIndex.append(tags.count - 1)
+        
+        let pairRangesIndexes = splitIndex.getPairs(advanceFirstBy: 2, advanceSecondBy: 0) 
+        let sentenceRanges = pairRangesIndexes.map { ranges[$0.0].lowerBound ..< ranges[$0.1].upperBound }
+        return sentenceRanges.flatMap{ self[$0] }
+    }
+    
 }
 
 func *(lhs: Character, rhs: Int) -> String {
@@ -549,6 +582,58 @@ extension Collection where Iterator.Element == String {
         
     }
     
+    
+    public func getIndexesFromtags() -> [Int] {
+        var check = false
+        return self.enumerated().flatMap { (ind,tag) -> Int? in
+            if (ind == 0){
+                return ind
+            }else if check == false && tag == "SentenceTerminator" {
+                return ind
+            }else if tag == "OpenQuote"{
+                check = true
+                return nil
+            }else if tag == "CloseQuote"{
+                check = false
+                return nil
+            }else {
+                return nil
+            }
+        }
+    }
+    
+    public func orderBySentenceCount(min: Int, max: Int) -> [String] {
+       
+        guard let smallerSentences = self as? [String], smallerSentences.count > 0 else { return [] }
+        
+        let wordCountDifference = max - min - 1
+        //adding to previous or next sentence when the current sentence is small
+        var tempArray = [String]()
+        var temp = ""
+        for (ind, str) in smallerSentences.enumerated(){
+            if (str.characters.count < min){
+                if (ind == smallerSentences.count - 1 && smallerSentences[ind - 1].characters.count < wordCountDifference ){
+                    if let last = tempArray.last, let lastIndex = tempArray.index(of: last) {
+                        tempArray[lastIndex] = ("\(smallerSentences[ind - 1]) \(str)") 
+                    }
+                }else if (ind < smallerSentences.count - 1 && smallerSentences[ind + 1].characters.count < wordCountDifference ){
+                    temp = str 
+                }else if (ind < smallerSentences.count && ind > 0 && smallerSentences[ind + 1].characters.count >= wordCountDifference && smallerSentences[ind - 1].characters.count < wordCountDifference ){
+                    
+                    if let last = tempArray.last, let lastIndex = tempArray.index(of: last) {
+                        tempArray[lastIndex] = ("\(smallerSentences[ind - 1]) \(str)") 
+                    }
+                }else{
+                    tempArray.append(str)
+                }
+            }else{
+                tempArray.append("\(str) \(temp)")
+                temp = ""
+            }
+        }
+        
+        return tempArray
+    }
     
     
 }

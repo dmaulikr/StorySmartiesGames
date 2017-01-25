@@ -113,6 +113,31 @@ extension Sequence where Self.Iterator.Element: Hashable {
         return (temp,tempInt)
     }
     
+    public func removeAfter(index: Int) -> [Element]{
+        
+        guard let list = (self as? [Self.Iterator.Element]), list.count > index else { return [] }
+        return list.enumerated().flatMap { (ind, element) -> Element? in
+            return (ind <= index) ? list[ind] : nil
+        }
+    }
+    
+    public func indexesWithOffset (minOffset: Int, maxOffset:Int) -> [Int] {
+        
+        guard let list = (self as? [Self.Iterator.Element]), list.count > minOffset else { return [] }
+        
+        var indexes = [Int]()
+        for (ind,_) in list.enumerated(){
+            let rand = Int.randomi(minOffset, maxOffset)
+            if indexes.isEmpty{
+                let max = (list.count > 2) ? 2 : 0
+                indexes.append(Int.randomi(0, max))
+            }else if let last = indexes.last, ind >= last + rand {
+                indexes.append(ind)
+            }
+        }
+        
+        return indexes
+    }
     
 }
 

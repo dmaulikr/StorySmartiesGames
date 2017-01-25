@@ -37,5 +37,45 @@ extension CALayer {
         self.addSublayer(shapeLayer)
     }
     
+    public func createLayer(frame: CGRect, color : UIColor) -> CALayer {
+        let layer = CALayer()
+        layer.frame = frame
+        
+        //layer.contents = UIImage(named: "star")?.cgImage
+        //layer.contentsGravity = kCAGravityCenter
+        
+        layer.magnificationFilter = kCAFilterLinear
+        layer.isGeometryFlipped = false
+        
+        layer.backgroundColor = color.cgColor
+        layer.opacity = 1.0
+        //layer.isHidden = false
+        //layer.masksToBounds = false
+        
+        //layer.cornerRadius = 100.0
+        //layer.borderWidth = 12.0
+        layer.borderColor = UIColor.white.cgColor
+        
+        layer.shadowOpacity = 0.75
+        layer.shadowOffset = CGSize(width: 0, height: 3)
+        layer.shadowRadius = 3.0
+        
+        return layer
+    }
+    
+    public func startBlink() {
+        UIView.animate(withDuration: 0.8,
+                       delay:0.0,
+                       options:[.autoreverse, .repeat],
+                       animations: {
+                    self.opacity = 0
+        }, completion: nil)
+    }
+    
+    public func stopBlink() {
+        //self.alpha = 1
+        self.removeAllAnimations()
+    }
+    
     
 }

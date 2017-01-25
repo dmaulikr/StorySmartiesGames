@@ -60,6 +60,10 @@ public extension UIView {
         self.layer.cornerRadius = 10
         self.isUserInteractionEnabled = true
     }
+    
+    
+    
+    
 
     
 }
